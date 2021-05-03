@@ -7,20 +7,21 @@
     left: 0;
     background-color: black;
     height: 70px;
-    padding: 0 2em;
+    // padding: 0 2em;
+    padding: 0 17vw;
     position: fixed;
     z-index: 10;
     @include flex-container($align: center, $spacing: space-between);
     &__logo {
-        max-height: 26px;
+        max-height: 30px;
         cursor: pointer;
     }
     &__items {
         @include flex-container($align: center, $spacing: flex-end);
     }
     &__item {
-        padding: 0.5em;
-        font-size: 0.75em;
+        padding-left: 2.25em;
+        font-size: 0.9em;
         &--link {
             color: white;
         }

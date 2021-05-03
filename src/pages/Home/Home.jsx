@@ -24,6 +24,8 @@ class Home extends React.Component {
             id={content.id} 
             button1={content.buttons.button1}
             button2={content.buttons.button2}
+            link1={content.buttons.link1}
+            link2={content.buttons.link2}
             />)
         )}  
         </main>

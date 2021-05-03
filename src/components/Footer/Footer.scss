@@ -4,7 +4,7 @@
 .footer {
     background-color: black;
     width: 100%;
-    padding: 3em 10em;
+    padding: 6vh 17vw;
     height: 300px;
     color: white;
     @include flex-container($align: baseline, $spacing: space-between);

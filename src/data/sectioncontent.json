@@ -6,7 +6,13 @@
         "image": "./bg04.jpeg",
         "buttons": {
             "button1": "DINNER",
-            "button2": "VINO & COCKTAILS"
+            "button2": "VINO & COCKTAILS",
+            "button3": "test"
+        },
+        "links": {
+            "link1": "https://rossdesignstudio.com/testing/CIMA/menu01.pdf",
+            "link2": "https://rossdesignstudio.com/testing/CIMA/menu02.pdf",
+            "link3": "https://rossdesignstudio.com/testing/CIMA/menu02.pdf"
         }
     },
     {
@@ -16,6 +22,9 @@
         "image": "./bg03.jpeg",
         "buttons": {
             "button1": "UBEREATS"
+        },
+        "links": {
+            "link1": "https://www.ubereats.com/ca/toronto/food-delivery/cima-enoteca/IayzjDDMS7OXkrWPH5xQAA?utm_source=google&utm_medium=organic&utm_campaign=place-action-link"
         }
     },
     {
@@ -24,7 +33,10 @@
         "text": "Book a reservation at CIMA on Brant online. For parties of 6 or more, please call us (905) 332-2022.",
         "image": "./bg06.jpeg",
         "buttons": {
-            "button1": "RESERVATIONS"
+            "button1": "RESERVATIONS"          
+        },
+        "links": {
+            "link1": "https://www.tbdine.com/book/restaurant/cima-brant?idApp=69240"
         }
     }
 ]

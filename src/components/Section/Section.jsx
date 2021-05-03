@@ -1,10 +1,9 @@
 import React from 'react';
 import './Section.scss';
 
-function Section({ title, text, image, id, button1, button2 }) {
+function Section({ title, text, image, id, button1, button2, link1, link2 }) {
 	return (
 		<section id={id} className="section">
-			{/* <div className="section__wrap"> */}
 				<div className="section__img-wrap">
 					<img className="section__img" src={image} alt="..." />
 				</div>
@@ -16,19 +15,19 @@ function Section({ title, text, image, id, button1, button2 }) {
 						{text}
 					</p>
 						<button className="section__button">
-							<a href="menu01.pdf" target="_blank" className="section__button--link">
+							<a href={link1} target="_blank" className="section__button--link">
 								{button1}
 							</a>
 						</button>
 						{button2 &&
 						<button className="section__button">
-							<a href="menu02.pdf" target="_blank" className="section__button--link">
+							<a href={link2} target="_blank" className="section__button--link">
 								{button2}								
 							</a>
 						</button>
 						}
+						
 				</div>
-			{/* </div> */}
 		</section>
 	)
 }
