@@ -1,0 +1,30 @@
+[
+    {
+        "id": "menus",
+        "title": "Sample Menus",
+        "text": "Though we endeavour to keep our online menus current, our menu changes frequently. Please view these as sample menus.",
+        "image": "./bg04.jpeg",
+        "buttons": {
+            "button1": "DINNER",
+            "button2": "VINO & COCKTAILS"
+        }
+    },
+    {
+        "id": "order",
+        "title": "Order Takeout",
+        "text": "Delivery and pickup available through UberEats, or call us for pickup at our Burlington location (905) 332-2022.",
+        "image": "./bg03.jpeg",
+        "buttons": {
+            "button1": "UBEREATS"
+        }
+    },
+    {
+        "id": "reserve",
+        "title": "Reserve a Table",
+        "text": "Book a reservation at CIMA on Brant online. For parties of 6 or more, please call us (905) 332-2022.",
+        "image": "./bg06.jpeg",
+        "buttons": {
+            "button1": "RESERVATIONS"
+        }
+    }
+]

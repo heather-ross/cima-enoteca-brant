@@ -1,0 +1,23 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.footer {
+    background-color: black;
+    width: 100%;
+    padding: 3em 10em;
+    height: 300px;
+    color: white;
+    @include flex-container($align: baseline, $spacing: space-between);
+    &__col {
+        max-width: 20vw;
+        // margin-left: auto;
+        // margin-right: auto;
+    }
+    &__col-icon {
+        height: 1.5em;
+        padding-right: 1em;
+    }
+    &__col-contact--text, &__col-hours--text {
+        line-height: 1em;
+    }
+}
