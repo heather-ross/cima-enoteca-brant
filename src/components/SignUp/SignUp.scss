@@ -1,15 +1,13 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
-.sign-in {
+.sign-up {
     &__wrap {
-        margin-top: 10%;
+        margin-top: 20%;
+        content: inherit;
     }
-    &__title {
+    &__title, &__login {
         text-align: center;
         padding-bottom: 1em;
-    }
-    &__reset-pass {
-        text-align: center;
     }
 }

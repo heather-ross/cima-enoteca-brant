@@ -2,7 +2,7 @@
 @use './partials/mixins' as *;
 
 @import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900,900i|Playfair+Display:400,400i,700,700i");
-* {
+*, ::after, ::before {
     box-sizing: border-box;
 }
 body {
@@ -26,7 +26,8 @@ button,
 input,
 optgroup,
 select,
-textarea {
+textarea,
+.add-menu__file-custom {
     font-family: inherit;
     font-size: 0.85em;
     font-weight: 400;
@@ -35,14 +36,36 @@ textarea {
     margin: 0;
 }
 button {
-    height: 36px;
-    border: none;
+    min-height: 3.75em;
+    min-width: 12em;
+    border: 0.5px solid #ed8f0c;
     display: inline-block;
+    margin-top: 1em;
+    padding: 1em 1.5em;
     background: none;
     color: inherit;
+    &:hover {
+        color: #ed8f0c;
+    }
+    &:focus {
+        outline: none;
+    } 
 }
 p {
     font-size: 0.85em;
     line-height: 1.75em;
     font-weight: 300;
+}
+form {
+    @include flex-container();
+    flex-direction: column;
+    max-width: 30vw;
+    margin: auto;
+    
+}
+input {
+    display: block;
+    width: 100%;
+    padding: 1em;
+    margin-bottom: 1em;
 }

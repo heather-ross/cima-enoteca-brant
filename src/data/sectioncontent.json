@@ -6,13 +6,11 @@
         "image": "./bg04.jpeg",
         "buttons": {
             "button1": "DINNER",
-            "button2": "VINO & COCKTAILS",
-            "button3": "test"
+            "button2": "VINO & COCKTAILS"
         },
         "links": {
             "link1": "https://rossdesignstudio.com/testing/CIMA/menu01.pdf",
-            "link2": "https://rossdesignstudio.com/testing/CIMA/menu02.pdf",
-            "link3": "https://rossdesignstudio.com/testing/CIMA/menu02.pdf"
+            "link2": "https://rossdesignstudio.com/testing/CIMA/menu02.pdf"
         }
     },
     {

@@ -15,13 +15,13 @@ function Section({ title, text, image, id, button1, button2, link1, link2 }) {
 						{text}
 					</p>
 						<button className="section__button">
-							<a href={link1} target="_blank" className="section__button--link">
+							<a href={link1} target="_blank" rel="noreferrer" className="section__button--link">
 								{button1}
 							</a>
 						</button>
 						{button2 &&
 						<button className="section__button">
-							<a href={link2} target="_blank" className="section__button--link">
+							<a href={link2} target="_blank" rel="noreferrer" className="section__button--link">
 								{button2}								
 							</a>
 						</button>
