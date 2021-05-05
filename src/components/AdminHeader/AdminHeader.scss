@@ -1,0 +1,29 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.header {
+    width: 100%;
+    background-color: black;
+    position: relative;
+    margin-top: -5px;
+    &__home-link {
+        margin-top: 0;
+    }
+    &__home-icon {
+        // position: absolute;
+        right: 0;
+        padding: 1.5em;
+    }
+    &__title {
+        text-align: center;
+        padding: 0.5em 0 2em 0;
+        color: white;
+    }
+    &__logout {
+        position: absolute;
+        right: 4em;
+        // padding: 1.5em;
+        color: white;
+        cursor: pointer;
+    }
+}

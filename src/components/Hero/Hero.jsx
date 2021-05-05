@@ -8,7 +8,7 @@ function Hero() {
 
 
     return (
-        <Parallax bgImage={heroImg} strength={300}>
+        <Parallax bgImage={heroImg} strength={600}>
             <section className="hero">
                 <img className="hero__logo" src={logo} alt="cima logo" />
             </section>

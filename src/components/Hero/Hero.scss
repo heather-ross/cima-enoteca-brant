@@ -7,7 +7,7 @@
     @include flex-container($align: center, $spacing: center);
     &::before {
         content: "";
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.4);
         z-index: 1;
         position: absolute;
         height: 100vh;

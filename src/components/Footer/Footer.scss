@@ -7,7 +7,9 @@
     padding: 6vh 17vw;
     height: 300px;
     color: white;
-    @include flex-container($align: baseline, $spacing: space-between);
+    &__cols {
+        @include flex-container($align: baseline, $spacing: space-between);
+    }
     &__col {
         max-width: 20vw;
     }
@@ -17,5 +19,9 @@
     }
     &__col-contact--text, &__col-hours--text {
         line-height: 1em;
+    }
+    &__admin-icon {
+       position: absolute;
+       left: 2em;
     }
 }

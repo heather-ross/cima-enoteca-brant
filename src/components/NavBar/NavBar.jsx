@@ -23,7 +23,7 @@ class NavBar extends React.Component {
                         spy={true}
                         smooth={true}
                         offset={-70}
-                        duration={200}
+                        duration={600}
                     >
                         MENUS
                     </Link>

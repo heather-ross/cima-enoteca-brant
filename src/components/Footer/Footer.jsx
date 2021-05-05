@@ -1,12 +1,15 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import './Footer.scss';
 import instagram from '../../assets/icons/instagram.svg';
 import facebook from '../../assets/icons/facebook.svg';
 import twitter from '../../assets/icons/twitter.svg';
+import admin from '../../assets/icons/admin.svg';
 
-function Footer() {
+const Footer = () => {
     return (
         <footer className="footer">
+            <div className="footer__cols">
             <section className="footer__col">
                 <h4>SOCIAL</h4>
                 <div className="footer__col-icons">
@@ -32,7 +35,8 @@ function Footer() {
                 </div>
 
             </section>
-            
+            </div>
+            <Link to='/sign-in' ><img className="footer__admin-icon" src={admin} alt="admin icon"/></Link>
         </footer>
     )
 }

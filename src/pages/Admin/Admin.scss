@@ -1,15 +1,12 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
-.sign-in {
-    &__wrap {
-        margin-top: 10%;
-    }
+.admin {
     &__title {
         text-align: center;
-        padding-bottom: 1em;
+        padding: 1em;
     }
-    &__reset-pass {
-        text-align: center;
+    &__wrap {
+        @include flex-container($align: baseline, $spacing: space-between);
     }
 }
