@@ -1,35 +1,36 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from "react-router-dom";
 import './SignIn.scss';
-import fire from '../../config/firebase';
+import fire from '../../firebase';
 import AdminHeader from '../../components/AdminHeader/AdminHeader';
 
 
 const SignIn = () => {
-    const [loginDetails, setLoginDetails] = useState({
-        email: '',
-        password: ''
-    })
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const history = useHistory()
 
-    const handleChange = (e) => {
-        setLoginDetails({
-            ...loginDetails,
-            [e.target.name]: e.target.value,
-        });
-    };
-
     const login = (e) => {
         e.preventDefault();
-        fire.auth().signInWithEmailAndPassword(loginDetails.email, loginDetails.password)
+
+        console.log(email)
+        fire.auth().signInWithEmailAndPassword(email, password)
             .then((user) => {
-                if (user) {
+                // if (user) {
                     history.push('/dashboard')
-                }
+                // }
+                // console.log(user)
             }).catch((error) => {
                 console.error(error);
             });
+    }
+    const validateForm = () => {
+        return email.length > 4 && password.length > 5;
+    }
+
+    const handleSubmit = (e) => {
+        // e.preventDefault();
     }
 
     return (
@@ -41,27 +42,29 @@ const SignIn = () => {
                     <form
                         className="sign-in__form"
                         id="signInForm"
-                        name="signInForm">
+                        name="signInForm"
+                        onSubmit={handleSubmit}>
                         <div className="sign-in__details">
                             <input
                                 label="User Email"
                                 placeholder="Enter email"
                                 name="email"
                                 type="email"
-                                value={loginDetails.email}
-                                onChange={(e) => handleChange(e)} />
+                                // value={email}
+                                onChange={(e) => setEmail(e.target.value)} />
                             <input
                                 label="Password"
                                 placeholder="Password"
                                 name="password"
                                 type="password"
-                                value={loginDetails.password}
-                                onChange={(e) => handleChange(e)} />
+                                // value={password}
+                                onChange={(e) => setPassword(e.target.value)} />
                         </div>
 
                         <button
                             className="sign-in__button form__button"
-                            type="submit"
+                            type="submit" 
+                            disabled={!validateForm()}
                             onClick={(e) => login(e)}>
                             Sign In
                             </button>

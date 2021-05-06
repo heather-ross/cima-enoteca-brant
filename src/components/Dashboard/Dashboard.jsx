@@ -3,14 +3,15 @@ import { useHistory } from "react-router-dom";
 import AdminHeader from '../../components/AdminHeader/AdminHeader';
 import AddMenu from '../../components/AddMenu/AddMenu';
 import AddUser from '../../components/AddUser/AddUser';
-import fire from '../../config/firebase';
+import { withRouter } from 'react-router-dom';
+import fire from '../../firebase';
 import './Dashboard.scss';
 
-const Dashboard = ({ user }) => {
+const Dashboard = ({ user, logout, ...rest }) => {
     const history = useHistory()
     const logOut = (e) => {
         e.preventDefault();
-        fire.auth().signOut()
+        fire.auth(user).signOut()
             .then(() => {
                 history.push('/sign-in')
             })
@@ -21,6 +22,7 @@ const Dashboard = ({ user }) => {
         <section className="dashboard">
             
             <h2 className="dashboard__title">Welcome to your Dashboard</h2>
+            
             <div className="dashboard__wrap">
                 <AddMenu />
                 <AddUser />

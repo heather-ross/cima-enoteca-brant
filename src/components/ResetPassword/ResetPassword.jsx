@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from  "react-router-dom";
 import './ResetPassword.scss';
+import AdminHeader from '../AdminHeader/AdminHeader';
 
 const ResetPassword = () => {
     return (
+        <>
+        <AdminHeader />
         <section className="reset">
             <div className="reset__wrap">
             <h2 className="reset__title">Reset Password</h2>
@@ -24,6 +27,7 @@ const ResetPassword = () => {
                 </form>
             </div>
         </section>
+        </>
     )
 }
 
