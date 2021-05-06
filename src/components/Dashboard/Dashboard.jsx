@@ -1,9 +1,7 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
-import AdminHeader from '../../components/AdminHeader/AdminHeader';
 import AddMenu from '../../components/AddMenu/AddMenu';
 import AddUser from '../../components/AddUser/AddUser';
-import { withRouter } from 'react-router-dom';
 import fire from '../../firebase';
 import './Dashboard.scss';
 
@@ -18,7 +16,6 @@ const Dashboard = ({ user, logout, ...rest }) => {
     }
     return (
         <>
-        <AdminHeader />
         <section className="dashboard">
             
             <h2 className="dashboard__title">Welcome to your Dashboard</h2>

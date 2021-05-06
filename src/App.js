@@ -1,31 +1,30 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import './styles/styles.scss';
-import { Switch, Route, Redirect } from "react-router-dom";
-import fire from 'firebase';
+import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 import Home from './pages/Home/Home';
 import AdminHeader from './components/AdminHeader/AdminHeader';
 import SignIn from './components/SignIn/SignIn';
 import Dashboard from './components/Dashboard/Dashboard';
 import ResetPassword from './components/ResetPassword/ResetPassword';
 import ProtectedRoute from './components/Protected/Protected';
-import { AuthProvider } from './contexts/AuthContext';
+import { AuthContext } from './contexts/AuthContext';
 
 const App = () => {
-  
-    return (
-      <>
-
-        <Switch>
-          <AuthProvider>
-          <Route path='/' exact component={Home} />
-          <Route path='/sign-in' component={SignIn} />
-          <ProtectedRoute path='/dashboard' component={Dashboard} />
-          <Route path='/reset' component={ResetPassword} />
-          </AuthProvider>
-        </Switch>
-
-      </>
-    )
+  const { value } = useContext(AuthContext);
+  const location = useLocation();
+  console.log(location)
+  return (
+    <>
+      {location.pathname !== '/' && <AdminHeader />}
+      <Switch>
+        <Route path='/' exact component={Home} />
+        {!!value.currentUser && (<Redirect from='/sign-in' to='/dashboard' />)}
+        <Route path='/sign-in' component={SignIn} />
+        <ProtectedRoute path='/dashboard' component={Dashboard} />
+        <Route path='/reset' component={ResetPassword} />
+      </Switch>
+    </>
+  )
 
 }
 
