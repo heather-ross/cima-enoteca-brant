@@ -5,7 +5,8 @@ import AddUser from '../../components/AddUser/AddUser';
 import fire from '../../firebase';
 import './Dashboard.scss';
 
-const Dashboard = ({ user, logout, ...rest }) => {
+const Dashboard = ({ user, logout, setData, data, ...rest }) => {
+    
     const [error, setError] = useState('')
     const history = useHistory()
     const logOut = (e) => {
@@ -24,7 +25,7 @@ const Dashboard = ({ user, logout, ...rest }) => {
             <h2 className="dashboard__title">Welcome to your Dashboard</h2>
             
             <div className="dashboard__wrap">
-                <AddMenu />
+                <AddMenu setData={setData} data={data}/>
                 <AddUser />
             </div>
             <button className="dashboard__logout" variant="link" onClick={(e) => logOut(e)}>Logout</button>

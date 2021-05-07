@@ -7,9 +7,9 @@ import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
 
 class Home extends React.Component {
-  state = {
-    sectionContent: sectionData
-  }
+  // state = {
+  //   sectionContent: sectionData
+  // }
 
   render() {
     return (
@@ -17,7 +17,7 @@ class Home extends React.Component {
         <NavBar />
         <Hero />
         <main>
-          {this.state.sectionContent.map(content => (
+          {this.props.sectionData.map(content => (
             <Section
               title={content.title}
               text={content.text}

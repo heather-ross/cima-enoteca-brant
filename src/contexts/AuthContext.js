@@ -15,9 +15,7 @@ export function AuthProvider({ children }) {
      useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             if(user){
-                console.log(user)
             } else {
-                console.log("no one is signed in")
             }
         setCurrentUser(user)
         setLoading(false)
@@ -33,12 +31,9 @@ export function AuthProvider({ children }) {
 
     const login = (e, email, password) => {
         e.preventDefault();
-        console.log(password)
-        console.log(email)
         fire.auth().signInWithEmailAndPassword(email, password)
             .then((user) => {
                 if (user) {
-                    console.log('signed in!')
                 }
             }).catch((error) => {
                 console.error(error);
@@ -46,12 +41,10 @@ export function AuthProvider({ children }) {
     }
     const addUser = (email, password) => {
         fire.auth().createUserWithEmailAndPassword(email, password)
-        console.log('user added!')
     }
 
     const resetPassword = (email) => {
         fire.auth().sendPasswordResetEmail(email)
-        console.log('reset!')
     }
 
     return (

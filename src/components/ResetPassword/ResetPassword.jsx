@@ -13,10 +13,6 @@ const ResetPassword = () => {
 
     async function handleSubmit(e) {
         e.preventDefault();
-
-        // if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-        //     return setError('Passwords do not match')
-        // }
         try {
             setMessage('')
             setError('')
@@ -55,7 +51,7 @@ const ResetPassword = () => {
                         <button className="reset__button form__button">Reset</button>
 
                     </form>
-                    <p className="success">{message}</p>
+                    <p className="success">{message}{error}</p>
                     <p className="reset__login"> <Link to='/sign-in'>Back to Sign In</Link></p>
                 </div>
             </section>
