@@ -49,10 +49,14 @@ export function AuthProvider({ children }) {
         console.log('user added!')
     }
 
+    const resetPassword = (email) => {
+        fire.auth().sendPasswordResetEmail(email)
+        console.log('reset!')
+    }
+
     return (
-        <AuthContext.Provider value={{value, login, addUser}}>
+        <AuthContext.Provider value={{value, login, addUser, resetPassword}}>
             {!loading && children}
         </AuthContext.Provider>
     )
 }
-

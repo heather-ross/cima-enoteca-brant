@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState} from 'react';
 import { useHistory } from "react-router-dom";
 import AddMenu from '../../components/AddMenu/AddMenu';
 import AddUser from '../../components/AddUser/AddUser';
@@ -6,13 +6,16 @@ import fire from '../../firebase';
 import './Dashboard.scss';
 
 const Dashboard = ({ user, logout, ...rest }) => {
+    const [error, setError] = useState('')
     const history = useHistory()
     const logOut = (e) => {
         e.preventDefault();
         fire.auth(user).signOut()
             .then(() => {
                 history.push('/sign-in')
-            })
+            }) .catch (
+                setError('Failed to logout')
+            )
     }
     return (
         <>

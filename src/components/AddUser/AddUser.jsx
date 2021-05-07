@@ -72,7 +72,7 @@ const AddUser = () => {
                 <button 
                 className="add-user__button form__button" 
                 type="submit" 
-                diabled={loading}
+                disabled={loading}
                 >
                     Create Account
                     </button>

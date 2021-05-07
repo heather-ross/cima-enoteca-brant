@@ -48,6 +48,7 @@ const SignIn = () => {
                             Sign In
                             </button>
                     </form>
+                    <p>{error}</p>
                     <p className="sign-in__reset-pass">Forget password? <Link to='/reset'>Reset</Link></p>
                 </div>
             </section>
