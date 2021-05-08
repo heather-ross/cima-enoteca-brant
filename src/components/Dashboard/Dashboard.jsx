@@ -5,7 +5,7 @@ import AddUser from '../../components/AddUser/AddUser';
 import fire from '../../firebase';
 import './Dashboard.scss';
 
-const Dashboard = ({ user, logout, setData, data, ...rest }) => {
+const Dashboard = ({ user, setData, data, ...rest }) => {
     
     const [error, setError] = useState('')
     const history = useHistory()
@@ -14,10 +14,11 @@ const Dashboard = ({ user, logout, setData, data, ...rest }) => {
         fire.auth(user).signOut()
             .then(() => {
                 history.push('/sign-in')
-            }) .catch (
+            }).catch (
                 setError('Failed to logout')
             )
     }
+    console.log('logout...', logOut)
     return (
         <>
         <section className="dashboard">
@@ -28,7 +29,8 @@ const Dashboard = ({ user, logout, setData, data, ...rest }) => {
                 <AddMenu setData={setData} data={data}/>
                 <AddUser />
             </div>
-            <button className="dashboard__logout" variant="link" onClick={(e) => logOut(e)}>Logout</button>
+            <button className="dashboard__logout" variant="link" onClick={logOut}>Logout</button>
+            <p>{error}</p>
         </section>
         </>
     )

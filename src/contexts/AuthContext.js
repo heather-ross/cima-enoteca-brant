@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { auth } from '../firebase';
+import { auth, storage } from '../firebase';
 import fire from '../firebase';
 
 export const AuthContext = React.createContext()
@@ -11,18 +11,21 @@ export function useAuth() {
 export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState();
     const [loading, setLoading] = useState(true);
+    const [url, setURL] = useState("");
 
-     useEffect(() => {
+    useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
-            if(user){
+            if (user) {
             } else {
             }
-        setCurrentUser(user)
-        setLoading(false)
-    })
-    return unsubscribe
+            setCurrentUser(user)
+            setLoading(false)
+        })
+        storage.ref('images/menu.jpeg').getDownloadURL().then(url => {
+            setURL(url)
+        });
+        return unsubscribe
     }, [])
-    
 
     const value = {
         currentUser,
@@ -48,7 +51,7 @@ export function AuthProvider({ children }) {
     }
 
     return (
-        <AuthContext.Provider value={{value, login, addUser, resetPassword}}>
+        <AuthContext.Provider value={{ value, login, addUser, resetPassword, url, setURL }}>
             {!loading && children}
         </AuthContext.Provider>
     )

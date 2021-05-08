@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { storage } from '../../firebase';
+import { AuthContext } from '../../contexts/AuthContext';
 import './AddMenu.scss';
 
 
 export default function AddMenu(props) {
     const [file, setFile] = useState(null);
-    const [url, setURL] = useState("");
+    const { url, setURL } = useContext(AuthContext);
 
+    console.log(url)
 
     function handleChange(e) {
         setFile(e.target.files[0]);
@@ -14,23 +16,24 @@ export default function AddMenu(props) {
 
     function handleUpload(e) {
         e.preventDefault();
-        const uploadTask = storage.ref(`/images/${file.name}`).put(file);
+        const uploadTask = storage.ref(`images/menu.jpeg`).put(file);
         uploadTask.on("state_changed", console.log, console.error, () => {
             storage
                 .ref("images")
-                .child(file.name)
+                .child('menu.jpeg')
                 .getDownloadURL()
                 .then((url) => {
                     setFile(null);
                     setURL(url);
-                    const menuData = [...props.data]
+                    const menuData = [{...props.data}]
                     menuData[0].links.link1 = url
                     props.setData(menuData);
                     localStorage.setItem('menuData', JSON.stringify(menuData));
-                });
-        });
+                }).catch(
+                    console.error('Failed to upload'))
+        })
     }
-    
+
 
     return (
         <section className="add-menu">
@@ -56,12 +59,13 @@ export default function AddMenu(props) {
                     </label>
                 </div>
 
-                <button className="add-menu__button form__button" type="submit" disabled={!file}>Upload
+                <button className="add-menu__button form__button" type="submit" s>Upload
                 </button>
+                <p>Current Menu</p>
+                <img src={url} alt="image upload" className="add-menu__thumb" />
             </form>
-            <img src={url} alt="image upload" className="add-menu__thumb" />
+
         </section>
     )
 }
 
-// export default AddMenu

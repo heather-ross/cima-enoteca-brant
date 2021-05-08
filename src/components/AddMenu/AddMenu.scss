@@ -58,11 +58,10 @@
         border-radius: 0 .25rem .25rem 0;
       }
       &__thumb {
-        max-height: 3em;
+        max-width: 25em;
       }
 }
 
-  
   /* Focus */
   .add-menu__file input:focus {
     border: 0.5px solid #ed8f0c;
