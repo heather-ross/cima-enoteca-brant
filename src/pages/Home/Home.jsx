@@ -8,6 +8,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 
 function Home({sectionData}) {
   const { url } = useContext(AuthContext);
+  const { url2 } = useContext(AuthContext);
 
   return (
     <>
@@ -24,7 +25,7 @@ function Home({sectionData}) {
             button1={content.buttons.button1}
             button2={content.buttons.button2}
             link1={index === 0 ? url : content.links.link1}
-            link2={content.links.link2}
+            link2={index === 0 ? url2 : content.links.link2}
           />)
         )}
       </main>

@@ -12,6 +12,7 @@ export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState();
     const [loading, setLoading] = useState(true);
     const [url, setURL] = useState("");
+    const [url2, setURL2] = useState("");
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
@@ -23,6 +24,9 @@ export function AuthProvider({ children }) {
         })
         storage.ref('images/menu.jpeg').getDownloadURL().then(url => {
             setURL(url)
+        });
+        storage.ref('images/menu2.jpeg').getDownloadURL().then(url2 => {
+            setURL2(url2)
         });
         return unsubscribe
     }, [])
@@ -36,8 +40,8 @@ export function AuthProvider({ children }) {
         e.preventDefault();
         fire.auth().signInWithEmailAndPassword(email, password)
             .then((user) => {
-                if (user) {
-                }
+                // if (user) {
+                // }
             }).catch((error) => {
                 console.error(error);
             });
@@ -51,7 +55,7 @@ export function AuthProvider({ children }) {
     }
 
     return (
-        <AuthContext.Provider value={{ value, login, addUser, resetPassword, url, setURL }}>
+        <AuthContext.Provider value={{ value, login, addUser, resetPassword, url, setURL, url2, setURL2 }}>
             {!loading && children}
         </AuthContext.Provider>
     )

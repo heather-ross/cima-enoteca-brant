@@ -27,7 +27,7 @@ const App = () => {
         {!!value.currentUser && (<Redirect from='/sign-in' to='/dashboard' />)}
         <Route path='/sign-in' component={SignIn} />
         <ProtectedRoute path='/dashboard' 
-        component={Dashboard} setData={setData} data={data}/>
+        component={Dashboard} setData={setData}/>
         <Route path='/reset' component={ResetPassword} />
       </Switch>
     </>
