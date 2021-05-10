@@ -10,7 +10,7 @@ export default function AddMenu() {
     const { url, setURL } = useContext(AuthContext);
     const { url2, setURL2 } = useContext(AuthContext);
 
-    console.log(url)
+    // console.log(url)
 
     function handleChange(e) {
         setFile(e.target.files[0]);
@@ -78,7 +78,7 @@ export default function AddMenu() {
                 <button className="add-menu__button form__button" type="submit" s>Upload
                 </button>
                 <p>Current Dinner Menu</p>
-                <img src={url} alt="image upload" className="add-menu__thumb" />
+                <img src={url} alt="dinner menu" className="add-menu__thumb" />
             </form>
             <form
                 className="add-menu"
@@ -104,7 +104,7 @@ export default function AddMenu() {
                 <button className="add-menu__button form__button" type="submit" s>Upload
                 </button>
                 <p>Current Vino & Cocktails Menu</p>
-                <img src={url2} alt="image upload" className="add-menu__thumb" />
+                <img src={url2} alt="Wine Menu" className="add-menu__thumb" />
             </form>
 
         </section>

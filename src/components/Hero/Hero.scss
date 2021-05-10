@@ -4,6 +4,7 @@
 .hero {
     height: 100vh;
     width: 100%;
+    overflow: hidden;
     @include flex-container($align: center, $spacing: center);
     &::before {
         content: "";
@@ -13,6 +14,24 @@
         height: 100vh;
         width: 100%;
     }
+    &__parallax {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.4);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // @include background-img;
+        object-fit: cover;
+        z-index: -1;
+        animation: move 40s ease;
+    /* Add infinite to loop. */
+    
+    -ms-animation: move 40s ease;
+    -webkit-animation: move 40s ease;
+    
+        
+      }
     &__logo {
         z-index: 2;
         position: absolute;
@@ -21,3 +40,41 @@
         transform: translate(-50%,-50%);
     }
 }
+.overflow {
+    height: 200vh;
+  }
+  
+  
+  @keyframes move {
+    0% {
+      -webkit-transform-origin: bottom left;
+      -moz-transform-origin: bottom left;
+      -ms-transform-origin: bottom left;
+      -o-transform-origin: bottom left;
+      transform-origin: bottom left;
+      transform: scale(1.0);
+      -ms-transform: scale(1.0);
+      /* IE 9 */
+      
+      -webkit-transform: scale(1.0);
+      /* Safari and Chrome */
+      
+      
+      
+      -moz-transform: scale(1.0);
+      /* Firefox */
+    }
+    100% {
+      transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      /* IE 9 */
+      
+      -webkit-transform: scale(1.2);
+      /* Safari and Chrome */
+      
+      
+      
+      -moz-transform: scale(1.2);
+      /* Firefox */
+    }
+  }

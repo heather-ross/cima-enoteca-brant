@@ -36,7 +36,7 @@ const ResetPassword = () => {
                         id="resetForm"
                         name="resetForm"
                         onSubmit={handleSubmit}>
-                    <div className="reset__details">
+                        <div className="reset__details">
                             <input
                                 label="Reset Password"
                                 placeholder="Email"
@@ -48,7 +48,11 @@ const ResetPassword = () => {
 
                         </div>
 
-                        <button className="reset__button form__button">Reset</button>
+                        <button
+                            className="reset__button form__button"
+                            disabled={loading}>
+                            Reset
+                        </button>
 
                     </form>
                     <p className="success">{message}{error}</p>

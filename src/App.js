@@ -14,20 +14,19 @@ import sectionData from './data/sectioncontent.json';
 const App = () => {
   const { value } = useContext(AuthContext);
   const location = useLocation();
-  const [data, setData] = useState(sectionData);
-  
-  
+  const [data] = useState(sectionData);
+
   return (
     <>
       {location.pathname !== '/' && <AdminHeader />}
       <Switch>
         <Route path='/' exact>
-          <Home sectionData={data}/>
+          <Home sectionData={data} />
         </Route>
         {!!value.currentUser && (<Redirect from='/sign-in' to='/dashboard' />)}
         <Route path='/sign-in' component={SignIn} />
-        <ProtectedRoute path='/dashboard' 
-        component={Dashboard} setData={setData}/>
+        <ProtectedRoute path='/dashboard'
+          component={Dashboard}  />
         <Route path='/reset' component={ResetPassword} />
       </Switch>
     </>

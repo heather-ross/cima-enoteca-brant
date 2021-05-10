@@ -1,24 +1,45 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { auth, storage } from '../firebase';
-import fire from '../firebase';
+import firebase from 'firebase/app';
 
 export const AuthContext = React.createContext()
 
 export function useAuth() {
-    return useContext(AuthContext)
+    useContext(AuthContext);
 }
-
 export function AuthProvider({ children }) {
+    
     const [currentUser, setCurrentUser] = useState();
     const [loading, setLoading] = useState(true);
     const [url, setURL] = useState("");
     const [url2, setURL2] = useState("");
+ 
+
+    const login = (email, password) => {
+        auth.signInWithEmailAndPassword(email, password)
+    }
+    const addUser = (email, password, name) => {
+        auth.createUserWithEmailAndPassword(email, password);
+        addName(name)
+    }
+    const resetPassword = (email) => {
+        auth.sendPasswordResetEmail(email)
+    }
+    const addName = (name) => {
+        let user = firebase.auth().currentUser
+        console.log(currentUser)
+         user.updateProfile({
+            displayName: name  
+        }).then(()=> {
+        }).catch((error) => {
+            console.error(error)
+        }
+            
+        )
+    }
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
-            if (user) {
-            } else {
-            }
             setCurrentUser(user)
             setLoading(false)
         })
@@ -30,32 +51,15 @@ export function AuthProvider({ children }) {
         });
         return unsubscribe
     }, [])
-
+    
     const value = {
         currentUser,
         loading
     }
-
-    const login = (e, email, password) => {
-        e.preventDefault();
-        fire.auth().signInWithEmailAndPassword(email, password)
-            .then((user) => {
-                // if (user) {
-                // }
-            }).catch((error) => {
-                console.error(error);
-            });
-    }
-    const addUser = (email, password) => {
-        fire.auth().createUserWithEmailAndPassword(email, password)
-    }
-
-    const resetPassword = (email) => {
-        fire.auth().sendPasswordResetEmail(email)
-    }
-
     return (
-        <AuthContext.Provider value={{ value, login, addUser, resetPassword, url, setURL, url2, setURL2 }}>
+        
+        <AuthContext.Provider
+            value={{ value, login, addUser, resetPassword, url, setURL, url2, setURL2 }}>
             {!loading && children}
         </AuthContext.Provider>
     )

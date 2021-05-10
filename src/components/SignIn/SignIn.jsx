@@ -1,17 +1,28 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import { Link } from "react-router-dom";
 import './SignIn.scss';
 import { AuthContext } from '../../contexts/AuthContext';
 
 const SignIn = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
+    const emailRef = useRef();
+    const passwordRef = useRef();
+    
     const { login } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
 
-    const validateForm = () => {
-        return email.length > 4 && password.length > 5;
+    async function handleSubmit(e) {
+        e.preventDefault();
+        try {
+            setError('')
+            setLoading(true)
+            await login(emailRef.current.value, passwordRef.current.value)
+        } catch {
+            setError('Failed to Sign-in')
+        }
+        setLoading(false)
+        e.target.reset();
     }
 
     return (
@@ -23,33 +34,37 @@ const SignIn = () => {
                         className="sign-in__form"
                         id="signInForm"
                         name="signInForm"
-                    >
+                        onSubmit={handleSubmit}>
+
                         <div className="sign-in__details">
+                            
                             <input
                                 label="User Email"
                                 placeholder="Enter email"
                                 name="email"
                                 type="email"
-                                onChange={(e) => setEmail(e.target.value)} />
+                                ref={emailRef}
+                                required />
                             <input
                                 label="Password"
                                 placeholder="Password"
                                 name="password"
                                 type="password"
-                                onChange={(e) => setPassword(e.target.value)} />
+                                ref={passwordRef}
+                                required />
                         </div>
 
                         <button
                             className="sign-in__button form__button"
                             type="submit"
-                            disabled={!validateForm()}
-                            onClick={(e) =>
-                                login(e, email, password)}>
+                            disabled={loading}>
                             Sign In
                             </button>
                     </form>
-                    <p>{error}</p>
-                    <p className="sign-in__reset-pass">Forget password? <Link to='/reset'>Reset</Link></p>
+                    <p className="form-error">{error}</p>
+                    <p className="sign-in__reset-pass">Forget password?
+                    <Link to='/reset'>Reset</Link>
+                    </p>
                 </div>
             </section>
         </>
