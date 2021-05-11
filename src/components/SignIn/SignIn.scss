@@ -2,12 +2,15 @@
 @use '../../styles/partials/mixins' as *;
 
 .sign-in {
+    padding: $mobile-spacing;
     &__wrap {
         margin-top: 10%;
+        max-width: 420px;
+        margin: auto;
     }
     &__title {
         text-align: center;
-        padding-bottom: 1em;
+        padding: 1em;
     }
     &__reset-pass {
         text-align: center;

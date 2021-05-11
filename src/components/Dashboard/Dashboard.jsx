@@ -10,6 +10,7 @@ const Dashboard = ({ user, ...rest }) => {
 
     const { value } = useContext(AuthContext);
     const [error, setError] = useState('')
+    
     const history = useHistory()
     const logOut = (e) => {
         e.preventDefault();
@@ -26,7 +27,7 @@ const Dashboard = ({ user, ...rest }) => {
             <section className="dashboard">
 
                 <h2 className="dashboard__title">Welcome to your Dashboard</h2>
-               <p>Logged in as {value.currentUser.email}</p>
+               <p className="dashboard__logged-in">Logged in as {value.currentUser.email}</p>
                 <div className="dashboard__wrap">
                     <AddMenu />
                     <AddUser />

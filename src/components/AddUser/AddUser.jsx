@@ -4,7 +4,6 @@ import './AddUser.scss';
 
 const AddUser = () => {
 
-    // const nameRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
@@ -25,9 +24,6 @@ const AddUser = () => {
             setError('')
             setLoading(true)
             await addUser(emailRef.current.value, passwordRef.current.value )
-                // nameRef.current.value
-            // addName(nameRef.current.value)
-            // console.log(nameRef.current.value)
             setMessage('Success! New user created and logged in')
         } catch {
             setError('Failed to create account')
@@ -37,8 +33,8 @@ const AddUser = () => {
     }
 
     return (
-        <section className="add-menu">
-            <h3 className="add-menu__title">Create a New User</h3>
+        <section className="add-user">
+            <h3 className="add-user__title">Create a New User</h3>
             <form
                 className="add-user__form"
                 id="addUserForm"
@@ -55,14 +51,6 @@ const AddUser = () => {
                         type="email"
                         ref={emailRef}
                         required />
-                    {/* <input
-                        label="Display Name"
-                        placeholder="Display Name"
-                        name="displayName"
-                        id="displayName"
-                        type="text"
-                        ref={nameRef}
-                        required /> */}
                     <input
                         label="Create Password"
                         placeholder="Create Password"

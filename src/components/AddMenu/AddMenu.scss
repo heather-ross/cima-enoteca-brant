@@ -3,9 +3,30 @@
 
 .add-menu {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: solid 1px #ed8f0c;
+    @include tablet {
+      border-bottom: none;
+      width: 80%;
+    }
     &__title {
       text-align: center;
       padding:2em 0;
+    }
+    // &__form-wrap {
+    //   display: flex;
+    //   flex-direction: column;
+    //   justify-content: center;
+    // }
+    &__form {
+      width: 100%;
+        padding-bottom: 2.5em;
+        @include desktop{
+          max-width: 400px;
+        }
+  
     }
     &__file {
         position: relative;
@@ -14,7 +35,7 @@
         height: 2.5rem;
       }
     &__file input {
-        min-width: 14rem;
+        // width: 100%;
         margin: 0;
         filter: alpha(opacity=0);
         opacity: 0;
@@ -26,6 +47,7 @@
         left: 0;
         z-index: 5;
         height: 2.5rem;
+        width: 90vw;
         padding: .5rem 1rem;
         line-height: 1.5;
         color: #555;
@@ -37,6 +59,15 @@
            -moz-user-select: none;
             -ms-user-select: none;
                 user-select: none;
+      @include mobile-large {
+        width: 80vw;
+      }
+      @include tablet {
+        width: 40vw;
+      }
+      @include desktop{
+        max-width: 420px;
+      }
       }
     &__file-custom:after {
         content: "Upload menu...";
@@ -57,8 +88,18 @@
         border: .075rem solid #ddd;
         border-radius: 0 .25rem .25rem 0;
       }
+      &__button {
+        width: 100%;
+        @include tablet {
+          width: 40vw;
+        }
+        @include desktop{
+          max-width: 420px;
+        }
+      }
       &__thumb {
-        max-width: 25em;
+        max-width: 20em;
+        // padding-bottom: 2.5em;
       }
 }
 
@@ -66,4 +107,3 @@
   .add-menu__file input:focus {
     border: 0.5px solid #ed8f0c;
   }
-  

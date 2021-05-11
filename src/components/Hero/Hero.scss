@@ -29,7 +29,6 @@
     
     -ms-animation: move 40s ease;
     -webkit-animation: move 40s ease;
-    
         
       }
     &__logo {
@@ -43,7 +42,16 @@
 .overflow {
     height: 200vh;
   }
-  
+  .hero__parallax {
+    width: 100%;
+    animation: move 40s ease;
+    /* Add infinite to loop. */
+    
+    -ms-animation: move 40s ease;
+    -webkit-animation: move 40s ease;
+    
+    position: absolute;
+  }
   
   @keyframes move {
     0% {
@@ -59,7 +67,8 @@
       -webkit-transform: scale(1.0);
       /* Safari and Chrome */
       
-      
+      -o-transform: scale(1.0);
+      /* Opera */
       
       -moz-transform: scale(1.0);
       /* Firefox */
@@ -72,7 +81,8 @@
       -webkit-transform: scale(1.2);
       /* Safari and Chrome */
       
-      
+      -o-transform: scale(1.2);
+      /* Opera */
       
       -moz-transform: scale(1.2);
       /* Firefox */
