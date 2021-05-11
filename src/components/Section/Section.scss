@@ -5,10 +5,18 @@
     width: 100%;
     background-color: white;
     color: rgb(19, 18, 18);
-    padding: 6em 0;
     overflow: hidden;
     @include flex-container($align: center, $spacing: center, $wrap: wrap);
     flex-direction: row-reverse;
+    @include mobile-large {
+        padding: 2*$mobile-spacing 1.5*$mobile-spacing;
+    }
+    @include tablet {
+        padding: 2*$tablet-spacing 0;
+    }
+    @include desktop {
+        padding: 6em 0;
+    }
     &:nth-of-type(even) {
         background-color: black;
         color:white;
@@ -21,9 +29,21 @@
         right: auto;
     }
     &__body {
-        max-width: 30%;
-        padding: 3rem 0;
-        margin: 3rem;
+        padding: 2*$mobile-spacing 1.5*$mobile-spacing;
+        text-align: center;
+        @include mobile-large {
+            padding: 2*$mobile-spacing 2.5*$mobile-spacing;
+        }
+        @include tablet {
+            max-width: 36em;
+            padding: $tablet-spacing 2*$tablet-spacing
+        }
+        @include desktop {
+            max-width: 30%;
+            padding: 3rem 0;
+            margin: 3rem;
+            text-align: unset;
+        }    
     }
     &__button {
         border: 0.5px solid #ed8f0c;

@@ -4,24 +4,51 @@
 .footer {
     background-color: black;
     width: 100%;
-    padding: 6vh 17vw;
-    height: 300px;
+    padding:  $mobile-spacing 2*$mobile-spacing 2*$mobile-spacing 2*$mobile-spacing;
+    min-height: 300px;
     color: white;
+    @include tablet {
+        padding: 6vh 10vw;
+    }
+    @include desktop {
+        padding: 6vh 12vw;
+    }
     &__cols {
-        @include flex-container($align: baseline, $spacing: space-between);
+        @include tablet {
+            @include flex-container($align: baseline, $spacing: space-between);
+        }
     }
     &__col {
-        max-width: 20vw;
+        padding-bottom: 1.5*$mobile-spacing;
+        max-width: 100vw;
+        @include tablet {
+            max-width: 25vw;
+            padding-bottom: 1.5*$tablet-spacing;
+        }
+        @include desktop {
+            max-width: 20vw;
+            padding-bottom: 1.5*$tablet-spacing;
+        }
     }
     &__col-icon {
         height: 1.5em;
-        padding-right: 1em;
+        padding-right: 1.5*$tablet-spacing;
+        @include tablet {
+            padding-right: $tablet-spacing;
+        }
     }
     &__col-contact--text, &__col-hours--text {
         line-height: 1em;
+        @include tablet {
+            line-height: 1.5em;
+        }
     }
     &__admin-icon {
-       position: absolute;
-       left: 2em;
+        position: absolute;
+        left: 2em;
+        
+        @include tablet {
+       
+        }
     }
 }

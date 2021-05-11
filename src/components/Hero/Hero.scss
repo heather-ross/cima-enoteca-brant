@@ -1,90 +1,52 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
+
+
 .hero {
     height: 100vh;
     width: 100%;
-    overflow: hidden;
+    // overflow: hidden;
     @include flex-container($align: center, $spacing: center);
-    &::before {
-        content: "";
-        background-color: rgba(0, 0, 0, 0.4);
-        z-index: 1;
-        position: absolute;
-        height: 100vh;
-        width: 100%;
+    &::after{
+      content:"";
+      width:100%;
+      height:100vh;
+      position:absolute;
+      bottom:0;
+      left:0;
+      z-index:-1;
+     background: linear-gradient(to bottom, rgba(0,0,0,0.12) 40%,rgba(0,0,0,1) 100%);
     }
-    &__parallax {
-        position: absolute;
-        background-color: rgba(0, 0, 0, 0.4);
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        // @include background-img;
-        object-fit: cover;
-        z-index: -1;
-        animation: move 40s ease;
-    /* Add infinite to loop. */
-    
-    -ms-animation: move 40s ease;
-    -webkit-animation: move 40s ease;
-        
-      }
+    &::before{
+      content:"";
+      width:100%;
+      height: 100vh;
+      position:absolute;
+      top:0;
+      left:0;
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: translateZ(0); backface-visibility: hidden;
+      scale: 1.0, 1.0;
+        transform: translateZ(0);
+      background:#030303 url(../../assets/images/bg02.jpeg) 50% 0 no-repeat;
+      background-size:cover;
+      background-attachment:fixed;
+      animation: grow 360s  linear 10ms infinite;
+      transition:all 0.4s ease-in-out;
+      z-index:-2
+    }
+
+
     &__logo {
         z-index: 2;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
+        height: 26vh;
+        @include tablet{
+
+        }
     }
 }
-.overflow {
-    height: 200vh;
-  }
-  .hero__parallax {
-    width: 100%;
-    animation: move 40s ease;
-    /* Add infinite to loop. */
-    
-    -ms-animation: move 40s ease;
-    -webkit-animation: move 40s ease;
-    
-    position: absolute;
-  }
-  
-  @keyframes move {
-    0% {
-      -webkit-transform-origin: bottom left;
-      -moz-transform-origin: bottom left;
-      -ms-transform-origin: bottom left;
-      -o-transform-origin: bottom left;
-      transform-origin: bottom left;
-      transform: scale(1.0);
-      -ms-transform: scale(1.0);
-      /* IE 9 */
-      
-      -webkit-transform: scale(1.0);
-      /* Safari and Chrome */
-      
-      -o-transform: scale(1.0);
-      /* Opera */
-      
-      -moz-transform: scale(1.0);
-      /* Firefox */
-    }
-    100% {
-      transform: scale(1.2);
-      -ms-transform: scale(1.2);
-      /* IE 9 */
-      
-      -webkit-transform: scale(1.2);
-      /* Safari and Chrome */
-      
-      -o-transform: scale(1.2);
-      /* Opera */
-      
-      -moz-transform: scale(1.2);
-      /* Firefox */
-    }
-  }
