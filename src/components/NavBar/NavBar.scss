@@ -5,12 +5,11 @@
     max-width: 100%;
     right: 0;
     left: 0;
-    background-color: black;
     height: 70px;
     padding: 0 17vw;
     position: fixed;
     z-index: 10;
-    
+    transition: 0.5s ease-in-out;
     @include flex-container($align: center, $spacing: space-between);
     &__logo {
         max-height: 30px;
@@ -26,6 +25,8 @@
     &__item {
         padding-left: 2.25em;
         font-size: 0.9em;
+        letter-spacing: 1.5px;
+        
         &--link {
             color: white;
         }
@@ -51,4 +52,5 @@
   .nav__toggle-show li {
       padding: 20px 10px;
       text-align: center;
+      transition: 0.4s ease-in-out;
   }

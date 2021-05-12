@@ -24,7 +24,7 @@ const Footer = () => {
                     <h4>CONTACT</h4>
                     <div className="footer__col-contact">
                         <p className="footer__col-contact--text">1200 Brant St., Burlington, ON</p>
-                        <p className="footer__col-contact--text" type="tel">(905) 332-2022</p>
+                        <a className="footer__tel" href="tel:(905)332-2022"><p className="footer__col-contact--text" >(905) 332-2022</p></a>
                     </div>
                 </section>
                 <section className="footer__col">

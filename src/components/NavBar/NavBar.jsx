@@ -11,16 +11,23 @@ const NavBar = () => {
     const handleToggle = () => {
         setActive(!isActive);
     };
-    
+
     const scrollToTop = () => {
         scroll.scrollToTop();
     };
 
+    window.onscroll = function () { scrollFunction() };
 
-
+    function scrollFunction() {
+        if (document.body.scrollTop > 350 || document.documentElement.scrollTop > 350) {
+            document.getElementById("nav").style.backgroundColor = "#000000";
+        } else {
+            document.getElementById("nav").style.backgroundColor = "transparent";
+        }
+    }
 
     return (
-        <nav className="nav">
+        <nav className="nav nav__bg nav__clear" id="nav">
             <img className="nav__logo" src={navLogo} alt="cima logo" onClick={scrollToTop} />
             <div className="nav__link--toggle">
                 <img src={bars} alt="mobile menu" onClick={handleToggle} />
