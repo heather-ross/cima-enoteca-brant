@@ -17,6 +17,9 @@
         @include tablet {
             @include flex-container($align: baseline, $spacing: space-between);
         }
+        @include desktop {
+            justify-content: space-around;
+        }
     }
     &__col {
         padding-bottom: 1.5*$mobile-spacing;
@@ -27,7 +30,7 @@
             padding-bottom: 1.5*$tablet-spacing;
         }
         @include desktop {
-            max-width: 20vw;
+            max-width: 35vw;
             padding-bottom: 1.5*$tablet-spacing;
         }
     }

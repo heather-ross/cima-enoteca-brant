@@ -5,11 +5,18 @@
     max-width: 100%;
     right: 0;
     left: 0;
+    // background-color: transparent;
     height: 70px;
     padding: 0 17vw;
     position: fixed;
     z-index: 10;
     transition: 0.5s ease-in-out;
+    &__clear {
+        background-color: transparent;
+    }
+    &__bg {
+        background-color: #000000;
+    }
     @include flex-container($align: center, $spacing: space-between);
     &__logo {
         max-height: 30px;
