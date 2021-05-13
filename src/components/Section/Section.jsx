@@ -17,10 +17,10 @@ const Section = ({ title, text, image, id, button1, button2, link1, link2 }) => 
 				<p className="section__text">
 					{text}
 				</p>
-				<button className="section__button">
+				<button className="section__button draw meet"><span>
 					<a href={link1} target="_blank" rel="noreferrer" className="section__button--link">
 						{button1}
-					</a>
+					</a></span>
 				</button>
 				{button2 &&
 					<button className="section__button">

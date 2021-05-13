@@ -19,7 +19,7 @@
     }
     &:nth-of-type(even) {
         background-color: black;
-        color:white;
+        color:rgb(218, 218, 218);
         font-weight: 800;
         flex-direction: row;
     }
@@ -46,7 +46,7 @@
         }    
     }
     &__button {
-        border: 0.5px solid #ed8f0c;
+        // border: 0.5px solid #ed8f0c;
         margin-right: 1.5em;
         margin-top: 1em;
         padding: 1em 1.5em;

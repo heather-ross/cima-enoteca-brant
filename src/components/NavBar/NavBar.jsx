@@ -10,16 +10,16 @@ const NavBar = () => {
     const navRef = useRef()
     navRef.current = navBackground
     useEffect(() => {
-      const handleScroll = () => {
-        const show = window.scrollY > 50
-        if (navRef.current !== show) {
-          setNavBackground(show)
+        const handleScroll = () => {
+            const show = window.scrollY > 350
+            if (navRef.current !== show) {
+                setNavBackground(show)
+            }
         }
-      }
-      document.addEventListener('scroll', handleScroll)
-      return () => {
-        document.removeEventListener('scroll', handleScroll)
-      }
+        document.addEventListener('scroll', handleScroll)
+        return () => {
+            document.removeEventListener('scroll', handleScroll)
+        }
     }, [])
 
     const [isActive, setActive] = useState("false");
@@ -31,30 +31,22 @@ const NavBar = () => {
         scroll.scrollToTop();
     };
 
-    // window.onscroll = function () { scrollFunction() };
-    // const scrollFunction = () => {
-    //     if (document.body.scrollTop > 350 || document.documentElement.scrollTop > 350) {
-    //         document.getElementById("nav").style.backgroundColor = "#000000";
-    //     } 
-    // }
-    
-
     return (
-        <nav className="nav " id="nav" style={{ backgroundColor: navBackground ? 'black' : 'transparent'}}>
+        <nav className="nav " id="nav" style={{ backgroundColor: navBackground ? 'black' : 'transparent' }}>
             <img className="nav__logo" src={navLogo} alt="cima logo" onClick={scrollToTop} />
-            <div className="nav__link--toggle">
-                <img src={bars} alt="mobile menu" onClick={handleToggle} />
+            <div className="nav__toggle">
+                <img className="nav__toggle-bars" src={bars} alt="mobile menu" onClick={handleToggle} />
             </div>
             <ul className={isActive ? "nav__items" : "nav__toggle-show"}>
                 <li className="nav__item">
                     <Link
                         className="nav__item--link"
-                        // activeClass="active"
                         to="menus"
                         spy={true}
                         smooth={true}
                         offset={-70}
                         duration={600}
+                        onClick={handleToggle}
                     >
                         MENUS
                     </Link>
@@ -62,12 +54,12 @@ const NavBar = () => {
                 <li className="nav__item">
                     <Link
                         className="nav__item--link"
-                        // activeClass="active"
                         to="order"
                         spy={true}
                         smooth={true}
                         offset={-70}
                         duration={500}
+                        onClick={handleToggle}
                     >
                         TAKEOUT
                     </Link>
@@ -75,12 +67,12 @@ const NavBar = () => {
                 <li className="nav__item">
                     <Link
                         className="nav__item--link"
-                        // activeClass="active"
                         to="reserve"
                         spy={true}
                         smooth={true}
                         offset={-70}
                         duration={500}
+                        onClick={handleToggle}
                     >
                         RESERVATIONS
                     </Link>
@@ -88,12 +80,12 @@ const NavBar = () => {
                 <li className="nav__item">
                     <Link
                         className="nav__item--link"
-                        // activeClass="active"
                         to="footer"
                         spy={true}
                         smooth={true}
                         offset={-70}
                         duration={500}
+                        onClick={handleToggle}
                     >
                         CONTACT
                     </Link>
