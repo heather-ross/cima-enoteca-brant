@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, animateScroll as scroll } from "react-scroll";
 import './NavBar.scss';
 import navLogo from '../../assets/images/logo-nav.png';
-import bars from '../../assets/icons/bars.svg';
 
 const NavBar = () => {
 
@@ -22,10 +21,10 @@ const NavBar = () => {
         }
     }, [])
 
-    const [isActive, setActive] = useState("false");
-    const handleToggle = () => {
-        setActive(!isActive);
-    };
+    const [isActive, setActive] = useState('false');
+    const handleToggle = () => setActive(!isActive);
+    const handleClose = () => setActive('false');
+  
 
     const scrollToTop = () => {
         scroll.scrollToTop();
@@ -34,8 +33,10 @@ const NavBar = () => {
     return (
         <nav className="nav " id="nav" style={{ backgroundColor: navBackground ? 'black' : 'transparent' }}>
             <img className="nav__logo" src={navLogo} alt="cima logo" onClick={scrollToTop} />
-            <div className="nav__toggle">
-                <img className="nav__toggle-bars" src={bars} alt="mobile menu" onClick={handleToggle} />
+            <div className="nav__toggle" onClick={handleToggle}>
+                <span className="nav__bars"></span>
+                <span className="nav__bars"></span>
+                <span className="nav__bars"></span>
             </div>
             <ul className={isActive ? "nav__items" : "nav__toggle-show"}>
                 <li className="nav__item">
@@ -46,7 +47,7 @@ const NavBar = () => {
                         smooth={true}
                         offset={-70}
                         duration={600}
-                        onClick={handleToggle}
+                        onClick={handleClose}
                     >
                         MENUS
                     </Link>
@@ -59,7 +60,7 @@ const NavBar = () => {
                         smooth={true}
                         offset={-70}
                         duration={500}
-                        onClick={handleToggle}
+                        onClick={handleClose}
                     >
                         TAKEOUT
                     </Link>
@@ -72,7 +73,7 @@ const NavBar = () => {
                         smooth={true}
                         offset={-70}
                         duration={500}
-                        onClick={handleToggle}
+                        onClick={handleClose}
                     >
                         RESERVATIONS
                     </Link>
@@ -85,7 +86,7 @@ const NavBar = () => {
                         smooth={true}
                         offset={-70}
                         duration={500}
-                        onClick={handleToggle}
+                        onClick={handleClose}
                     >
                         CONTACT
                     </Link>
