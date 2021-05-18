@@ -8,12 +8,31 @@ import Footer from '../../components/Footer/Footer';
 import { AuthContext } from '../../contexts/AuthContext';
 
 function Home({sectionData}) {
-  const { url } = useContext(AuthContext);
-  const { url2 } = useContext(AuthContext);
+  const { url, url2 } = useContext(AuthContext);
+  // const { url2 } = useContext(AuthContext);
+  const navLinks = [
+		{
+			text: 'MENUS',
+			path: 'menus',
+		},
+		{
+			text: 'TAKEOUT',
+			path: 'order',
+		},
+		{
+			text: 'RESERVATIONS',
+			path: 'reserve',
+		},
+		{
+			text: 'CONTACT',
+			path: 'footer',
+		}]
 
   return (
     <>
-      <NavBar />
+      <NavBar 
+        navLinks={ navLinks }
+      />
       <Hero />
       <main>
         {sectionData.map((content, index) => (

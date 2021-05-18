@@ -3,8 +3,8 @@ import { Link, animateScroll as scroll } from "react-scroll";
 import './NavBar.scss';
 import navLogo from '../../assets/images/logo-nav.png';
 
-const NavBar = () => {
-
+const NavBar = ({navLinks}) => {
+    
     const [navBackground, setNavBackground] = useState(false)
     const navRef = useRef()
     navRef.current = navBackground
@@ -22,9 +22,8 @@ const NavBar = () => {
     }, [])
 
     const [isActive, setActive] = useState('false');
-    const handleToggle = () => setActive(!isActive);
-    const handleClose = () => setActive('false');
-  
+    const handleToggle = () => {setActive(!isActive)};
+    const handleClose = () => setActive('false');  
 
     const scrollToTop = () => {
         scroll.scrollToTop();
@@ -39,62 +38,24 @@ const NavBar = () => {
                 <span className="nav__bars"></span>
             </div>
             <ul className={isActive ? "nav__items" : "nav__toggle-show"}>
+            {navLinks.map((link) => 
                 <li className="nav__item">
                     <Link
                         className="nav__item--link"
-                        to="menus"
+                        to={link.path}
                         spy={true}
                         smooth={true}
                         offset={-70}
                         duration={600}
                         onClick={handleClose}
                     >
-                        MENUS
+                        {link.text}
                     </Link>
                 </li>
-                <li className="nav__item">
-                    <Link
-                        className="nav__item--link"
-                        to="order"
-                        spy={true}
-                        smooth={true}
-                        offset={-70}
-                        duration={500}
-                        onClick={handleClose}
-                    >
-                        TAKEOUT
-                    </Link>
-                </li>
-                <li className="nav__item">
-                    <Link
-                        className="nav__item--link"
-                        to="reserve"
-                        spy={true}
-                        smooth={true}
-                        offset={-70}
-                        duration={500}
-                        onClick={handleClose}
-                    >
-                        RESERVATIONS
-                    </Link>
-                </li>
-                <li className="nav__item">
-                    <Link
-                        className="nav__item--link"
-                        to="footer"
-                        spy={true}
-                        smooth={true}
-                        offset={-70}
-                        duration={500}
-                        onClick={handleClose}
-                    >
-                        CONTACT
-                    </Link>
-                </li>
+                )}
             </ul>
         </nav>
     )
-
 }
 
 export default NavBar
