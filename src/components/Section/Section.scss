@@ -6,6 +6,7 @@
     background-color: white;
     color: rgb(19, 18, 18);
     overflow: hidden;
+    position: relative;
     @include flex-container($align: center, $spacing: center, $wrap: wrap);
     flex-direction: row-reverse;
     @include mobile-large {
