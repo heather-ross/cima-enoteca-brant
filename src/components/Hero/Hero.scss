@@ -41,10 +41,8 @@
       background-size:cover;
       background-attachment:fixed;
       animation: backwards 360s  linear 10ms infinite;
-      // animation: grow;
       transition:all 0.4s ease-in-out;
       z-index:-2;
-      
     }
     &__logo {
         z-index: 2;

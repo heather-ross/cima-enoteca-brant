@@ -5,7 +5,8 @@ import './Hero.scss';
 const Hero = () => {
 
     return (
-        <section className="hero loop">
+        <section>
+            <div className="hero loop"></div>
             <img className="hero__logo" src={logo} alt="cima logo" />
         </section>
     )

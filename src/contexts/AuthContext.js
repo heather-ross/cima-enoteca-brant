@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { auth, storage } from '../firebase';
-// import firebase from 'firebase/app';
 
 export const AuthContext = React.createContext()
 
@@ -13,32 +12,15 @@ export function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true);
     const [url, setURL] = useState("");
     const [url2, setURL2] = useState("");
- 
-
     const login = (email, password) => {
         auth.signInWithEmailAndPassword(email, password)
     }
     const addUser = (email, password) => {
-        auth.createUserWithEmailAndPassword(email, password);
-        
+        auth.createUserWithEmailAndPassword(email, password);   
     }
     const resetPassword = (email) => {
         auth.sendPasswordResetEmail(email)
     }
- 
-    // const updateUser = (name) => {
-    //     let user = firebase.auth().currentUser
-    //     console.log(currentUser)
-    //      user.updateProfile({
-    //         displayName: name, 
-    //     }).then(()=> {
-    //     }).catch((error) => {
-    //         console.error(error)
-    //     }
-            
-    //     )
-    // }
-
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             setCurrentUser(user)
