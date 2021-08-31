@@ -7,14 +7,19 @@ export default function AddMenu() {
 
     const [file, setFile] = useState(null);
     const [file2, setFile2] = useState(null);
-    const { url, setURL } = useContext(AuthContext);
-    const { url2, setURL2 } = useContext(AuthContext);
+    const [file3, setFile3] = useState(null);
+    const { menu, setMenu } = useContext(AuthContext);
+    const { menu2, setMenu2 } = useContext(AuthContext);
+    const { menu3, setMenu3 } = useContext(AuthContext);
 
     function handleChange(e) {
         setFile(e.target.files[0]);
     }
     function handleChange2(e) {
         setFile2(e.target.files[0]);
+    }
+    function handleChange3(e) {
+        setFile3(e.target.files[0]);
     }
 
     function handleUpload(e) {
@@ -25,9 +30,9 @@ export default function AddMenu() {
                 .ref("images")
                 .child('menu.jpeg')
                 .getDownloadURL()
-                .then((url) => {
+                .then((menu) => {
                     setFile(null);
-                    setURL(url);
+                    setMenu(menu);
                 }).catch(
                     console.error('Failed to upload'))
         })
@@ -40,18 +45,32 @@ export default function AddMenu() {
                 .ref("images")
                 .child('menu2.jpeg')
                 .getDownloadURL()
-                .then((url2) => {
+                .then((menu2) => {
                     setFile2(null);
-                    setURL2(url2);
+                    setMenu2(menu2);
+                }).catch(
+                    console.error('Failed to upload'))
+        })
+    }
+    function handleUpload3(e) {
+        e.preventDefault();
+        const uploadTask = storage.ref(`images/menu3.jpeg`).put(file3);
+        uploadTask.on("state_changed", console.log, console.error, () => {
+            storage
+                .ref("images")
+                .child('menu3.jpeg')
+                .getDownloadURL()
+                .then((menu3) => {
+                    setFile3(null);
+                    setMenu3(menu3);
                 }).catch(
                     console.error('Failed to upload'))
         })
     }
 
-
     return (
         <section className="add-menu">
-            <h3 className="add-menu__title">Add a New Menus</h3>
+            <h3 className="add-menu__title">Add New Menus</h3>
             <div className="add-menu__form-wrap">
                 <form
                     className="add-menu__form"
@@ -59,6 +78,8 @@ export default function AddMenu() {
                     name="add-menuForm"
                     onSubmit={handleUpload}
                 >
+                    <h4>Current Antipasti & Pasta Menu</h4>
+                    <img src={menu} alt="dinner menu" className="add-menu__thumb" />
                     <div className="add-menu__details">
                         <label className="add-menu__file" htmlFor="file">
                             <input
@@ -76,8 +97,7 @@ export default function AddMenu() {
                     <button className="add-menu__button form__button" type="submit">
                         Upload
                 </button>
-                <h4>Current Dinner Menu</h4>
-                    <img src={url} alt="dinner menu" className="add-menu__thumb" />
+                
                 </form>
                 <form
                     className="add-menu__form"
@@ -85,6 +105,8 @@ export default function AddMenu() {
                     name="add-menuForm2"
                     onSubmit={handleUpload2}
                 >
+                    <h4>Current Pizza & Mains Menu</h4>
+                    <img src={menu2} alt="Wine Menu" className="add-menu__thumb" />
                     <div className="add-menu__details">
                         <label className="add-menu__file">
                             <input
@@ -102,8 +124,34 @@ export default function AddMenu() {
 
                     <button className="add-menu__button form__button" type="submit" s>Upload
                 </button>
+                    
+                </form>
+                <form
+                    className="add-menu__form"
+                    id="add-menuForm3"
+                    name="add-menuForm3"
+                    onSubmit={handleUpload3}
+                >
                     <h4>Current Vino & Cocktails Menu</h4>
-                    <img src={url2} alt="Wine Menu" className="add-menu__thumb" />
+                    <img src={menu3} alt="Wine Menu" className="add-menu__thumb" />
+                    <div className="add-menu__details">
+                        <label className="add-menu__file">
+                            <input
+                                label="Upload New Menu"
+                                placeholder="Upload a PDF or image"
+                                className="upload__file"
+                                id="file2"
+                                name="file2"
+                                type="file"
+                                onChange={handleChange3}
+                            />
+                            <span className="add-menu__file-custom"></span>
+                        </label>
+                    </div>
+
+                    <button className="add-menu__button form__button" type="submit" s>Upload
+                </button>
+                    
                 </form>
             </div>
         </section>

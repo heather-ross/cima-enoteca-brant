@@ -8,8 +8,7 @@ import Footer from '../../components/Footer/Footer';
 import { AuthContext } from '../../contexts/AuthContext';
 
 function Home() {
-  const { url, url2 } = useContext(AuthContext);
-  // const { url2 } = useContext(AuthContext);
+  const { menu, menu2, menu3 } = useContext(AuthContext);
   const navLinks = [
 		{
 			text: 'MENUS',
@@ -32,21 +31,23 @@ function Home() {
           id: "menus",
           title: "Sample Menus",
           text: "Though we endeavour to keep our online menus current, our menu changes frequently. Please view these as sample menus.",
-          image: "./bg04.jpeg",
+          image: "./bg04.jpg",
           buttons: {
-              button1: "DINNER",
-              button2: "VINO & COCKTAILS"
+              button1: "ANTIPASTI & PASTA",
+              button2: "PIZZA & MAINS",
+              button3: "VINO & COCKTAILS"
           },
           links: {
               link1: "https://firebasestorage.googleapis.com/v0/b/cima-admin.appspot.com/o/images%2Fmenu-01.png?alt=media&token=5760504f-d75d-4ed2-ae55-c085e479fc57",
-              link2: "https://firebasestorage.googleapis.com/v0/b/cima-admin.appspot.com/o/images%2Fmenu.pdf?alt=media&token=e0cd734e-dd58-457a-981f-a1af945dd1d8"
+              link2: "https://firebasestorage.googleapis.com/v0/b/cima-admin.appspot.com/o/images%2Fmenu.pdf?alt=media&token=e0cd734e-dd58-457a-981f-a1af945dd1d8",
+              link3: "https://firebasestorage.googleapis.com/v0/b/cima-admin.appspot.com/o/images%2Fmenu.pdf?alt=media&token=e0cd734e-dd58-457a-981f-a1af945dd1d8"
           }
       },
       {
           id: "order",
           title: "Order Takeout",
           text: "Delivery and pickup available through UberEats, or call us for pickup at our Burlington location (905) 332-2022.",
-          image: "./bg03.jpeg",
+          image: "./bg05.jpg",
           buttons: {
               button1: "UBEREATS"
           },
@@ -58,7 +59,7 @@ function Home() {
           id: "reserve",
           title: "Reserve a Table",
           text: "Book a reservation at CIMA on Brant online. For parties of 6 or more, please call us (905) 332-2022.",
-          image: "./bg06.jpeg",
+          image: "./bg06.jpg",
           buttons: {
             button1: "RESERVATIONS"          
           },
@@ -82,10 +83,10 @@ function Home() {
             image={content.image}
             id={content.id}
             key={content.id}
-            button1={content.buttons.button1}
-            button2={content.buttons.button2}
-            link1={index === 0 ? url : content.links.link1}
-            link2={index === 0 ? url2 : content.links.link2}
+            buttons={content.buttons}
+            link1={index === 0 ? menu : content.links.link1}
+            link2={index === 0 ? menu2 : content.links.link2}
+            link3={index === 0 ? menu3 : content.links.link3}
           />)
         )}
       </main>

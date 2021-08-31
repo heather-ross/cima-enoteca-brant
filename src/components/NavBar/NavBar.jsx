@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, animateScroll as scroll } from "react-scroll";
 import './NavBar.scss';
-import navLogo from '../../assets/images/logo-nav.png';
 
 const NavBar = ({ navLinks }) => {
 
@@ -10,7 +9,7 @@ const NavBar = ({ navLinks }) => {
     navRef.current = navBackground
     useEffect(() => {
         const handleScroll = () => {
-            const show = window.scrollY > 350
+            const show = window.scrollY > 150
             if (navRef.current !== show) {
                 setNavBackground(show)
             }
@@ -21,23 +20,22 @@ const NavBar = ({ navLinks }) => {
         }
     }, [])
 
-    const [isActive, setActive] = useState('false');
-    const handleToggle = () => { setActive(!isActive) };
-    const handleClose = () => setActive('false');
+    const [active, setActive] = useState('false');
+    const handleToggle = () => { setActive(!active) };
 
     const scrollToTop = () => {
         scroll.scrollToTop();
     };
 
     return (
-        <nav className="nav " id="nav" style={{ backgroundColor: navBackground ? 'black' : 'transparent' }} >
-            <img className="nav__logo" src={navLogo} alt="cima logo" onClick={scrollToTop} />
+        <nav className="nav" id="nav" style={{ backgroundColor: navBackground ? 'black' : 'transparent' }} >
+            <h1 className="nav__logo" onClick={scrollToTop}>CIMA</h1>
             <div className="nav__toggle" onClick={handleToggle}>
-                <span className="nav__bars"></span>
-                <span className="nav__bars"></span>
-                <span className="nav__bars"></span>
+                <span className={active ? "nav__line" : "nav__line open"}></span>
+                <span className={active ? "nav__line" : "nav__line open"}></span>
+                <span className={active ? "nav__line" : "nav__line open"}></span>
             </div>
-            <ul className={isActive ? "nav__items" : "nav__toggle-show"} >
+            <ul className={active ? "nav__items" : "nav__mobile-menu"} >
                 {navLinks.map((link, i) =>
                     <li className="nav__item" key={i}>
                         <Link
@@ -47,7 +45,7 @@ const NavBar = ({ navLinks }) => {
                             smooth={true}
                             offset={-70}
                             duration={600}
-                            onClick={handleClose}
+                            onClick={handleToggle}
                         >
                             {link.text}
                         </Link>

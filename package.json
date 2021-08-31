@@ -1,5 +1,6 @@
 {
   "name": "cima-brant",
+  "homepage": "https://hross.dev/projects/project-cima",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

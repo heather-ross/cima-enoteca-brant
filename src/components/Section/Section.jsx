@@ -1,7 +1,7 @@
 import React from 'react';
 import './Section.scss';
 
-const Section = ({ title, text, image, id, button1, button2, link1, link2 }) => {
+const Section = ({ title, text, image, id, buttons, link1, link2, link3 }) => {
 
 
 	return (
@@ -16,15 +16,22 @@ const Section = ({ title, text, image, id, button1, button2, link1, link2 }) => 
 				<p className="section__text">
 					{text}
 				</p>
-				<button className="section__button draw meet"><span>
+				<button className="section__button"><span>
 					<a href={link1} target="_blank" rel="noreferrer" className="section__button--link">
-						{button1}
+						{buttons.button1}
 					</a></span>
 				</button>
-				{button2 &&
+				{buttons.button2 &&
 					<button className="section__button">
 						<a href={link2} target="_blank" rel="noreferrer" className="section__button--link">
-							{button2}
+							{buttons.button2}
+						</a>
+					</button>
+				}
+				{buttons.button3 &&
+					<button className="section__button">
+						<a href={link3} target="_blank" rel="noreferrer" className="section__button--link">
+							{buttons.button3}
 						</a>
 					</button>
 				}

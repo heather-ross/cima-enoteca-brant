@@ -10,8 +10,9 @@ export function AuthProvider({ children }) {
     
     const [currentUser, setCurrentUser] = useState();
     const [loading, setLoading] = useState(true);
-    const [url, setURL] = useState("");
-    const [url2, setURL2] = useState("");
+    const [menu, setMenu] = useState("");
+    const [menu2, setMenu2] = useState("");
+    const [menu3, setMenu3] = useState("");
     const login = (email, password) => {
         auth.signInWithEmailAndPassword(email, password)
     }
@@ -26,11 +27,14 @@ export function AuthProvider({ children }) {
             setCurrentUser(user)
             setLoading(false)
         })
-        storage.ref('images/menu.jpeg').getDownloadURL().then(url => {
-            setURL(url)
+        storage.ref('images/menu.jpeg').getDownloadURL().then(menu => {
+            setMenu(menu)
         });
-        storage.ref('images/menu2.jpeg').getDownloadURL().then(url2 => {
-            setURL2(url2)
+        storage.ref('images/menu2.jpeg').getDownloadURL().then(menu2 => {
+            setMenu2(menu2)
+        });
+        storage.ref('images/menu3.jpeg').getDownloadURL().then(menu3 => {
+            setMenu3(menu3)
         });
         return unsubscribe
     }, [])
@@ -42,7 +46,7 @@ export function AuthProvider({ children }) {
     return (
         
         <AuthContext.Provider
-            value={{ value, login, addUser, resetPassword, url, setURL, url2, setURL2 }}>
+            value={{ value, login, addUser, resetPassword, menu, setMenu, menu2, setMenu2, menu3, setMenu3 }}>
             {!loading && children}
         </AuthContext.Provider>
     )

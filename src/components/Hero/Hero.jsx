@@ -8,6 +8,7 @@ const Hero = () => {
         <section>
             <div className="hero loop"></div>
             <img className="hero__logo" src={logo} alt="cima logo" />
+            <h1 className="hero__title">CIMA ENOTECA BRANT</h1>
         </section>
     )
 }

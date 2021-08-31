@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { AuthContext } from '../../contexts/AuthContext';
 import AddMenu from '../../components/AddMenu/AddMenu';
-import AddUser from '../../components/AddUser/AddUser';
+// import AddUser from '../../components/AddUser/AddUser';
 import fire from '../../firebase';
 import './Dashboard.scss';
 
@@ -30,7 +30,7 @@ const Dashboard = ({ user, ...rest }) => {
                <p className="dashboard__logged-in">Logged in as {value.currentUser.email}</p>
                 <div className="dashboard__wrap">
                     <AddMenu />
-                    <AddUser />
+                    {/* <AddUser /> */}
                 </div>
                 <button className="dashboard__logout" variant="link" onClick={logOut}>Logout</button>
                 <p>{error}</p>

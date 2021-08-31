@@ -18,7 +18,7 @@ const ResetPassword = () => {
             setError('')
             setLoading(true)
             await resetPassword(emailRef.current.value)
-            setMessage('Success! Check your email for instructions to reset your password')
+            setMessage('Success! If the email address you entered is registered, you will receive an email with instructions to reset your password')
         } catch {
             setError('Failed to reset password')
         }
@@ -55,7 +55,7 @@ const ResetPassword = () => {
                         </button>
 
                     </form>
-                    <p className="success">{message}{error}</p>
+                    <p className="reset__success">{message}{error}</p>
                     <p className="reset__login"> <Link to='/sign-in'>Back to Sign In</Link></p>
                 </div>
             </section>

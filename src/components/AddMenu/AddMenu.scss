@@ -3,30 +3,30 @@
 
 .add-menu {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-bottom: solid 1px #ed8f0c;
+    text-align: center;
     @include tablet {
       border-bottom: none;
-      width: 80%;
     }
     &__title {
-      text-align: center;
-      padding:2em 0;
+      padding:2em 0 1rem 0;
+      width: 60%;
+      border-bottom: solid 1px #ed8f0c;
+      margin: auto;
     }
-    // &__form-wrap {
-    //   display: flex;
-    //   flex-direction: column;
-    //   justify-content: center;
-    // }
-    &__form {
+   &__form-wrap {
       width: 100%;
-        padding-bottom: 2.5em;
-        @include desktop{
-          max-width: 400px;
-        }
-  
+      display: flex;
+      justify-content: center;
+      align-items:flex-start;
+      flex-wrap: wrap;
+   }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 2em;
+        margin: 0 0.5rem;
+        
     }
     &__file {
         position: relative;
@@ -34,12 +34,7 @@
         cursor: pointer;
         height: 2.5rem;
       }
-    &__file input {
-        // width: 100%;
-        margin: 0;
-        filter: alpha(opacity=0);
-        opacity: 0;
-      }
+   
     &__file-custom {
         position: absolute;
         top: 0;
@@ -47,36 +42,16 @@
         left: 0;
         z-index: 5;
         height: 2.5rem;
-        width: 90vw;
-        padding: .5rem 1rem;
-        line-height: 1.5;
-        color: #555;
-        background-color: #fff;
-        border: .075rem solid #ddd;
-        border-radius: .25rem;
-        box-shadow: inset 0 .2rem .4rem rgba(0,0,0,.05);
-        -webkit-user-select: none;
-           -moz-user-select: none;
-            -ms-user-select: none;
-                user-select: none;
-      @include mobile-large {
-        width: 80vw;
-      }
-      @include tablet {
-        width: 40vw;
-      }
-      @include desktop{
-        max-width: 420px;
-      }
-      }
-    &__file-custom:after {
-        content: "Upload menu...";
-      }
+        max-width: 320px;
+        border: .075rem solid $highlight;
+    }
+  
     &__file-custom:before {
         position: absolute;
         top: -.075rem;
-        right: -.075rem;
+        left: -.075rem;
         bottom: -.075rem;
+        width: 6.75rem;
         z-index: 6;
         display: block;
         content: "Browse";
@@ -84,29 +59,30 @@
         padding: .5rem 1rem;
         line-height: 1.5;
         color: white;
-        background-color:#ed8f0c;
-        border: .075rem solid #ddd;
-        border-radius: 0 .25rem .25rem 0;
+        background-color:$highlight;
+        border: .075rem solid $highlight;
       }
-      &__button {
-        width: 100%;
-        @include tablet {
-          width: 40vw;
-        }
-        @include desktop{
-          max-width: 420px;
-        }
-      }
+    
       &__thumb {
-        // width: 20em;
-        // height: 20em;
+        max-width: 320px;
+        height: 25rem;
         object-fit:cover;
         object-position: top left;
-        // padding-bottom: 2.5em;
+        padding-bottom: 2em;
       }
 }
 
-  /* Focus */
-  .add-menu__file input:focus {
-    border: 0.5px solid #ed8f0c;
+  input[type=file] {
+    padding: 0.5rem 0 0.5rem 2.5rem;
   }
+  input[type=file]::-ms-browse {
+    opacity: 0;
+  }
+  input[type=file]::-webkit-file-upload-button {
+    opacity: 0;
+  }
+  
+  input[type=file]::file-selector-button {
+    opacity: 0;
+  }
+  

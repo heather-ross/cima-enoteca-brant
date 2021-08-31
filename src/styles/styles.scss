@@ -1,24 +1,42 @@
-@use './partials/variables' as *;
-@use './partials/mixins' as *;
+@use './partials/fonts'as *;
+@use './partials/variables'as *;
+@use './partials/mixins'as *;
 
-@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900,900i|Playfair+Display:400,400i,700,700i");
-*, ::after, ::before {
+*,
+::after,
+::before {
     box-sizing: border-box;
 }
+
 body {
-    font-family: "Lato", sans-serif;
+    font-family: 'Metropolis', Helvetica, sans-serif;
     overflow-x: hidden;
 }
-html, body, main, section, footer, h1, h2, h3, h5, img {
+h1, h2 {
+    font-family: 'Regime', Helvetica, sans-serif;
+    font-weight: 500;
+}
+
+html,
+body,
+main,
+section,
+footer,
+h1,
+h2,
+h3,
+h5,
+img {
     margin: 0;
     padding: 0;
-  }
+}
 
 a {
     text-decoration: none;
-    color: #323232;
+    color: inherit;
     cursor: pointer;
 }
+
 ul {
     list-style-type: none;
 }
@@ -30,12 +48,13 @@ select,
 textarea,
 .add-menu__file-custom {
     font-family: inherit;
-    font-size: 0.85em;
+    font-size: 0.9rem;
     font-weight: 400;
-    line-height: 0.65em;
-    letter-spacing: .07em;
+    line-height: 0.6rem;
+    letter-spacing: .07rem;
     margin: 0;
 }
+
 button {
     min-height: 3.75em;
     min-width: 12em;
@@ -45,52 +64,76 @@ button {
     padding: 1em 1.5em;
     background: none;
     color: inherit;
+
     &:hover {
         color: #ed8f0c;
     }
+
     &:focus {
         outline: none;
-    } 
-}
-p {
-    font-size: 0.85em;
-    line-height: 1.75em;
-    font-weight: 300;
-    @include desktop {
-        font-size: 1.01em;
-        letter-spacing: .5px
     }
 }
+
+p {
+    font-size: 1.05rem;
+    line-height: 1.5em;
+    font-weight: 300;
+    letter-spacing: .5px;
+    opacity: 0.8;
+
+    @include tablet {
+        font-size: 1rem;
+    }
+}
+
 form {
     @include flex-container();
     flex-direction: column;
     max-width: 100vw;
     margin: auto;
-    
+
 }
+
 input {
+    @include mobile {
+        input {
+            -webkit-appearance: none;
+            font-size: 16px;
+        }
+    }
+
     display: block;
     width: 100%;
     padding: 1em;
     margin-bottom: 1em;
 }
+
+form,
+form button,
+input {
+    width: 100%;
+    max-width: 320px;
+}
+
 .form-error {
     color: rgb(146, 42, 42);
 }
+
 .success {
     text-align: center;
 }
 
 .map {
-    width: 100%; 
-    height: 200px; 
+    width: 100%;
+    height: 200px;
+
     iframe {
-      height:200px;
-      width:100%;
-      border:0;
-      filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+ */
-      filter: gray; 
-        -webkit-filter: grayscale(99%); 
+        height: 200px;
+        width: 100%;
+        border: 0;
+        filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+        /* Firefox 10+ */
+        filter: gray;
+        -webkit-filter: grayscale(99%);
     }
-  }
-  
+}

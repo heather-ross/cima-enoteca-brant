@@ -8,15 +8,12 @@
         padding-left: $desktop-spacing;
         padding-right: $desktop-spacing;
     }
-    // @include desktop-xl {
-    //     padding-left: $desktop-xl-side-spacing;
-    //     padding-right: $desktop-xl-side-spacing;
-    // }
+    
     &__title, &__logged-in {
         text-align: center;
     }
     &__title {
-        padding: 1em;
+        padding-top: 1em;
     }
     
     &__wrap {

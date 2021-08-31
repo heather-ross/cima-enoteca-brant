@@ -1,6 +1,11 @@
 @use './variables' as *;
 
 //media-queries
+@mixin mobile {
+    @media (max-width: $mobile-large) {
+        @content;
+        }
+}
 @mixin mobile-large {
     @media (min-width: $mobile-large) {
     @content;
@@ -37,9 +42,10 @@
 }
 
 //flex container positions
-@mixin flex-container($align: null, $spacing: null, $wrap: null) {
+@mixin flex-container($align: null, $spacing: null, $wrap: null, $dir: null) {
     display: flex;
     align-items: $align;
     justify-content: $spacing;
     flex-wrap: $wrap;
+    flex-direction: $dir;
 }

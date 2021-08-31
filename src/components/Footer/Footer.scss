@@ -6,7 +6,7 @@
     width: 100%;
     padding:  $mobile-spacing 2*$mobile-spacing 2*$mobile-spacing 2*$mobile-spacing;
     min-height: 300px;
-    color: white;
+    color: $primary-light;
     @include tablet {
         padding: 6vh 10vw;
     }
@@ -24,7 +24,6 @@
     &__col {
         padding-bottom: 1.5*$mobile-spacing;
         max-width: 100vw;
-        color: rgb(241, 240, 240);
         @include tablet {
             max-width: 25vw;
             padding-bottom: 1.5*$tablet-spacing;
@@ -34,32 +33,43 @@
             padding-bottom: 1.5*$tablet-spacing;
         }
     }
-    &__col-title {
-        letter-spacing: 1.5px;
+    &__col-title, &__col-heading {
+        letter-spacing: 1.25px;
+        font-family: 'Metropolis-Medium';
     }
+    &__col-heading, &__col-text {
+        letter-spacing: 1px;
+    }
+    
     &__col-icon {
         height: 1.5em;
         padding-right: 1.5*$tablet-spacing;
+        opacity: 1;
         @include tablet {
             padding-right: $tablet-spacing;
+            &:hover {
+                opacity: 0.8;
+            }
+        }    
+    }
+   
+    &__col-text {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+
+    &__bottom-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    &__copy {
+        font-size: 0.7rem;
+        font-weight: 200;
+        opacity: 0.8;
+        a {
+            color: inherit;
         }
-    }
-    &__col-contact--text, &__col-hours--text {
-        line-height: 1em;
-        color:rgb(218, 218, 218);
-        @include tablet {
-            line-height: 1.5em;
-        }
-    }
-    &__tel {
-        color: rgb(241, 240, 240);
-    }
-    &__admin-icon {
-        position: absolute;
-        left: 2em;
-        
-        @include tablet {
-       
-        }
-    }
+      }
 }

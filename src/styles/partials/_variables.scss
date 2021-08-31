@@ -1,4 +1,5 @@
 //media queries
+$mobile: 767.9px;
 $mobile-large: 500px;
 $tablet: 768px;
 $desktop: 1280px;
@@ -9,3 +10,7 @@ $tablet-spacing: 24px;
 $desktop-spacing: 40px;
 $desktop-side-spacing: 160px;
 $desktop-xl-side-spacing: 180px;
+//colours
+$primary-light: #f8f7f7;
+$highlight: #ed8f0c;
+$faded-black: rgba(0, 0, 0, 0.9);
