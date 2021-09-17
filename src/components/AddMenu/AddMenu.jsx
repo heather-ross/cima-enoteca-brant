@@ -6,20 +6,12 @@ import './AddMenu.scss';
 export default function AddMenu() {
 
     const [file, setFile] = useState(null);
-    const [file2, setFile2] = useState(null);
-    const [file3, setFile3] = useState(null);
     const { menu, setMenu } = useContext(AuthContext);
     const { menu2, setMenu2 } = useContext(AuthContext);
     const { menu3, setMenu3 } = useContext(AuthContext);
 
     function handleChange(e) {
         setFile(e.target.files[0]);
-    }
-    function handleChange2(e) {
-        setFile2(e.target.files[0]);
-    }
-    function handleChange3(e) {
-        setFile3(e.target.files[0]);
     }
 
     function handleUpload(e) {
@@ -36,36 +28,39 @@ export default function AddMenu() {
                 }).catch(
                     console.error('Failed to upload'))
         })
+        e.target.reset();
     }
     function handleUpload2(e) {
         e.preventDefault();
-        const uploadTask = storage.ref(`images/menu2.jpeg`).put(file2);
+        const uploadTask = storage.ref(`images/menu2.jpeg`).put(file);
         uploadTask.on("state_changed", console.log, console.error, () => {
             storage
                 .ref("images")
                 .child('menu2.jpeg')
                 .getDownloadURL()
                 .then((menu2) => {
-                    setFile2(null);
+                    setFile(null);
                     setMenu2(menu2);
                 }).catch(
                     console.error('Failed to upload'))
         })
+        e.target.reset();
     }
     function handleUpload3(e) {
         e.preventDefault();
-        const uploadTask = storage.ref(`images/menu3.jpeg`).put(file3);
+        const uploadTask = storage.ref(`images/menu3.jpeg`).put(file);
         uploadTask.on("state_changed", console.log, console.error, () => {
             storage
                 .ref("images")
                 .child('menu3.jpeg')
                 .getDownloadURL()
                 .then((menu3) => {
-                    setFile3(null);
+                    setFile(null);
                     setMenu3(menu3);
                 }).catch(
                     console.error('Failed to upload'))
         })
+        e.target.reset();
     }
 
     return (
@@ -116,7 +111,7 @@ export default function AddMenu() {
                                 id="file2"
                                 name="file2"
                                 type="file"
-                                onChange={handleChange2}
+                                onChange={handleChange}
                             />
                             <span className="add-menu__file-custom"></span>
                         </label>
@@ -143,7 +138,7 @@ export default function AddMenu() {
                                 id="file2"
                                 name="file2"
                                 type="file"
-                                onChange={handleChange3}
+                                onChange={handleChange}
                             />
                             <span className="add-menu__file-custom"></span>
                         </label>

@@ -35,7 +35,8 @@
     }
     &__col-title, &__col-heading {
         letter-spacing: 1.25px;
-        font-family: 'Metropolis-Medium';
+        font-family: 'Metropolis', 'Montserrat', Helvetica, sans-serif;
+        font-weight: 500;
     }
     &__col-heading, &__col-text {
         letter-spacing: 1px;
@@ -60,12 +61,13 @@
 
     &__bottom-wrap {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
         flex-wrap: wrap;
+        @include tablet {
+            justify-content: center;
+        }
     }
     &__copy {
-        font-size: 0.7rem;
+        font-size: 0.6rem;
         font-weight: 200;
         opacity: 0.8;
         a {

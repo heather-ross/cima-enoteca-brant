@@ -22,6 +22,7 @@ const NavBar = ({ navLinks }) => {
 
     const [active, setActive] = useState('false');
     const handleToggle = () => { setActive(!active) };
+    const handleClose = () => setActive('false');
 
     const scrollToTop = () => {
         scroll.scrollToTop();
@@ -45,7 +46,7 @@ const NavBar = ({ navLinks }) => {
                             smooth={true}
                             offset={-70}
                             duration={600}
-                            onClick={handleToggle}
+                            onClick={handleClose}
                         >
                             {link.text}
                         </Link>

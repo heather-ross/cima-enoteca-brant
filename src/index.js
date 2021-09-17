@@ -8,7 +8,7 @@ import App from './App';
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
-    <Router basename={'/projects/project-cima'}>
+    <Router basename={'/'}>
       <App />
     </Router>
     </AuthProvider>

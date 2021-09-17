@@ -105,20 +105,16 @@
         }
     }
     &__mobile-menu .nav__items {
-        margin: auto;
         display: block;
-        // position: rela tive;
-        // transition: all 0.125s linear;
-        
     }
     &__mobile-menu .nav__item {
         padding: 1.5em 0;
         text-align: center;
-        font-size: 1.25em;
+        font-size: 1.5rem;
         font-weight: lighter;
-        @include tablet {
-          display:inline-block;
-      }
+    //     @include tablet {
+    //       display:inline-block;
+    //   }
     }
 }
           

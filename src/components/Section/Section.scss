@@ -8,7 +8,7 @@
     overflow: hidden;
     position: relative;
     padding-top: 1.5*$mobile-spacing ;
-    @include flex-container($align: center, $spacing: center, $wrap: wrap);
+    @include flex-container($align: center, $spacing: space-evenly, $wrap: wrap);
     flex-direction: row-reverse;
     @include tablet {
         padding: 2*$mobile-spacing 1.5*$mobile-spacing;
@@ -20,46 +20,57 @@
         font-weight: 800;
         flex-direction: row;
     }
+    &__img-wrap {
+        width: 100%;
+        @include tablet {
+            width: 80%;
+        }
+        
+        @include laptop {
+            max-width: 50%;
+        }
+   
+        @include desktop {
+                max-width: 38vw;
+            }
+       }
    
     &__img {
-        max-height: 50vh;
+        width:100%;
         padding: 0 1em;
         right: auto;
     }
     &__body {
         padding: 2*$mobile-spacing 1.5*$mobile-spacing;
         text-align: center;
-        @include tablet {
-            max-width: 36em;
-            padding: $tablet-spacing 2*$tablet-spacing;
-            text-align: unset;
+        @include laptop {
+            width: 50%;
+            padding: unset;
         }
         @include desktop {
-            max-width: 30%;
+            max-width: 40%;
             padding: 3rem 0;
             margin: 3rem;
             text-align: unset;
         }         
     }
     &__heading {
-        // text-transform: uppercase;
         font-size: 2rem;
     }
     &__text {
-        max-width: 80%;
+        max-width: 76%;
         margin-left: auto;
         margin-right: auto;
-        @include tablet {
-            max-width: unset;
+        @include desktop {
+            margin-left: unset;
         }
     }
     &__button {
-        margin: 0.5rem;
-        padding: 0.9em 1.5em;
+        margin: 1rem;
+        padding: 1em 1.5em;
         min-height: 3.75em;
-        min-width: 12em;
+        width: 13.5rem;
         transition: all 0.3s ease-in-out;
-        line-height: unset;
         @include tablet {
             margin: unset;
             margin-right: 1.5em;

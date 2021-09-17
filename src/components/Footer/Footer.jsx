@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import './Footer.scss';
 import instagram from '../../assets/icons/instagram.svg';
 import facebook from '../../assets/icons/facebook.svg';
-import admin from '../../assets/icons/admin.svg';
+// import admin from '../../assets/icons/admin.svg';
 
 const Footer = () => {
     return (
@@ -31,7 +31,7 @@ const Footer = () => {
                     <h4 className="footer__col-title">HOURS</h4>
                     <div className="footer__col-hours">
                         <h5 className="footer__col-heading">WEDNESDAY - SATURDAY</h5>
-                        <p className="footer__col-text">5PM - 9PM</p>
+                        <p className="footer__col-text">5PM - 10PM</p>
                         <h5 className="footer__col-heading">SUNDAY - TUESDAY</h5>
                         <p className="footer__col-text">Closed</p>
                     </div>
@@ -40,7 +40,7 @@ const Footer = () => {
             </div>
             <div className="footer__bottom-wrap">
             <p className="footer__copy">© <span>{new Date().getFullYear()}</span> CIMA ENOTECA / Design <a href="https://hross.dev" rel="noreferrer" target="_blank">hrDEV</a></p>
-            <Link to='/sign-in' ><img className="footer__admin-icon" src={admin} alt="admin icon" /></Link>
+            {/* <Link to='/sign-in' ><img className="footer__admin-icon" src={admin} alt="admin icon" /></Link> */}
             </div>
         </footer>
     )
