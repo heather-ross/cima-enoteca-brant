@@ -15,14 +15,14 @@ const AddMenu = () => {
         },
         {
             id: 2,
-            title: "Current Antipasti & Pasta Menu",
+            title: "Current Pizza & Mains Menu",
             images: "menu2.jpeg",
             menus: values.menu2,
             setMenus: values.setMenu2,
         },
         {
             id: 3,
-            title: "Current Antipasti & Pasta Menu",
+            title: "Current Vino & Cocktails Menu",
             images: "menu3.jpeg",
             menus: values.menu3,
             setMenus: values.setMenu3,
