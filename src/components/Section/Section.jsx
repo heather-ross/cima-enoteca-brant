@@ -1,8 +1,7 @@
 import React from 'react';
 import './Section.scss';
 
-const Section = ({ title, text, image, id, buttons, link1, link2, link3 }) => {
-
+const Section = ({ title, text, image, id, buttons, link1, link2, link3}) => {
 
 	return (
 		<section id={id} className="section">
@@ -16,10 +15,10 @@ const Section = ({ title, text, image, id, buttons, link1, link2, link3 }) => {
 				<p className="section__text">
 					{text}
 				</p>
-				<button className="section__button"><span>
+				<button className="section__button">
 					<a href={link1} target="_blank" rel="noreferrer" className="section__button--link">
 						{buttons.button1}
-					</a></span>
+					</a>
 				</button>
 				{buttons.button2 &&
 					<button className="section__button">

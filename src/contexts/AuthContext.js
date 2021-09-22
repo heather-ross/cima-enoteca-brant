@@ -39,14 +39,20 @@ export function AuthProvider({ children }) {
         return unsubscribe
     }, [])
     
-    const value = {
+    const values = {
         currentUser,
-        loading
+        loading,
+        menu,
+        menu2,
+        menu3, 
+        setMenu, 
+        setMenu2, 
+        setMenu3
     }
     return (
         
         <AuthContext.Provider
-            value={{ value, login, addUser, resetPassword, menu, setMenu, menu2, setMenu2, menu3, setMenu3 }}>
+            value={{ values, login, addUser, resetPassword }}>
             {!loading && children}
         </AuthContext.Provider>
     )

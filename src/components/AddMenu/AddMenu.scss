@@ -16,18 +16,13 @@
    &__form-wrap {
       width: 100%;
       display: flex;
-      justify-content: center;
       align-items:flex-start;
       flex-wrap: wrap;
    }
-    &__form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-bottom: 2em;
-        margin: 0 0.5rem;
-        
-    }
+   &__form {
+    padding: 0.5rem;
+   }
+   
     &__file {
         position: relative;
         display: inline-block;

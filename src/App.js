@@ -8,13 +8,10 @@ import Dashboard from './components/Dashboard/Dashboard';
 import ResetPassword from './components/ResetPassword/ResetPassword';
 import ProtectedRoute from './components/Protected/Protected';
 import { AuthContext } from './contexts/AuthContext';
-// import sectionData from './data/sectioncontent.json';
-
 
 const App = () => {
-  const { value } = useContext(AuthContext);
+  const { values } = useContext(AuthContext);
   const location = useLocation();
-  // const [data] = useState(sectionData);
 
   return (
     <>
@@ -23,7 +20,7 @@ const App = () => {
         <Route path='/' exact>
           <Home />
         </Route>
-        {!!value.currentUser && (<Redirect from='/sign-in' to='/dashboard' />)}
+        {!!values.currentUser && (<Redirect from='/sign-in' to='/dashboard' />)}
         <Route path='/sign-in' component={SignIn} />
         <ProtectedRoute path='/dashboard'
           component={Dashboard}  />

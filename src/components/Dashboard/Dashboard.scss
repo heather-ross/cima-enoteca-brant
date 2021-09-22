@@ -16,18 +16,6 @@
         padding-top: 1em;
     }
     
-    &__wrap {
-        @include flex-container($align: baseline, $spacing: space-between);
-        flex-direction: column;
-        @include mobile-large {
-            margin: auto;
-            padding-left: $tablet-spacing;
-            padding-right: $tablet-spacing;
-        }
-        @include tablet {
-            flex-direction: row;
-          }
-    }
     &__logout {
         display: block;
         margin: 5em auto;

@@ -27,7 +27,7 @@
         }
         
         @include laptop {
-            max-width: 50%;
+            max-width: 45%;
         }
    
         @include desktop {
@@ -44,8 +44,10 @@
         padding: 2*$mobile-spacing 1.5*$mobile-spacing;
         text-align: center;
         @include laptop {
-            width: 50%;
+            width: 55%;
             padding: unset;
+            padding-left: $mobile-spacing;
+            text-align: unset;
         }
         @include desktop {
             max-width: 40%;
@@ -61,7 +63,7 @@
         max-width: 76%;
         margin-left: auto;
         margin-right: auto;
-        @include desktop {
+        @include laptop {
             margin-left: unset;
         }
     }

@@ -4,15 +4,14 @@ import { AuthContext } from '../../contexts/AuthContext';
 
 function ProtectedRoute({ component: Component, ...rest }) {
 
-  const { value } = useContext(AuthContext);
-  // const { currentUser } = useAuth();
+  const { values } = useContext(AuthContext);
 
   return (
     <Route
       {...rest}
       render={(props) => {
 
-        return value.currentUser ? (
+        return values.currentUser ? (
           <Component {...props} />
         ) : (
           <Redirect to='/sign-in' />

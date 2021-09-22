@@ -2,7 +2,25 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, animateScroll as scroll } from "react-scroll";
 import './NavBar.scss';
 
-const NavBar = ({ navLinks }) => {
+const NavBar = () => {
+
+    const navLinks = [
+		{
+			text: 'MENUS',
+			path: 'menus',
+		},
+		{
+			text: 'TAKEOUT',
+			path: 'order',
+		},
+		{
+			text: 'RESERVATIONS',
+			path: 'reserve',
+		},
+		{
+			text: 'CONTACT',
+			path: 'footer',
+		}]
 
     const [navBackground, setNavBackground] = useState(false)
     const navRef = useRef()
