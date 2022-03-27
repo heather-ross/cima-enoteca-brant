@@ -8,13 +8,12 @@ import sectionData from '../../data/sectionData.json';
 import '../../styles/styles.scss';
 
 function Home() {
-
   return (
     <>
       <NavBar />
       <Hero />
       <main>
-        {sectionData.map((content) => (
+        {sectionData.map((content, i) => (
           <Section
             title={content.title}
             text={content.text}
@@ -23,6 +22,7 @@ function Home() {
             key={content.id}
             buttons={content.buttons}
             links={content.links}
+            i={i === 0}
           />)
         )}
       </main>

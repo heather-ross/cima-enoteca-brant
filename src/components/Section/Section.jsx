@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import './Section.scss';
 
-const Section = ({ title, text, image, id, buttons, links}) => {
+const Section = ({ title, text, image, id, buttons, links, i}) => {
 	
 	const { values } = useContext(AuthContext);
 
@@ -19,20 +19,20 @@ const Section = ({ title, text, image, id, buttons, links}) => {
 					{text}
 				</p>
 				<button className="section__button">
-					<a href={links.link1 && values.menu} target="_blank" rel="noreferrer" className="section__button--link">
+					<a href={i ? values.menu : links.link1} target="_blank" rel="noreferrer" className="section__button--link">
 						{buttons.button1}
 					</a>
 				</button>
 				{buttons.button2 &&
 					<button className="section__button">
-						<a href={links.link2 && values.menu2} target="_blank" rel="noreferrer" className="section__button--link">
+						<a href={i ? values.menu2 : links.link2} target="_blank" rel="noreferrer" className="section__button--link">
 							{buttons.button2}
 						</a>
 					</button>
 				}
 				{buttons.button3 &&
 					<button className="section__button">
-						<a href={links.link3 && values.menu3} target="_blank" rel="noreferrer" className="section__button--link">
+						<a href={i ? values.menu3 : links.link3} target="_blank" rel="noreferrer" className="section__button--link">
 							{buttons.button3}
 						</a>
 					</button>
